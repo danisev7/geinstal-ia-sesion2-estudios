@@ -2,6 +2,8 @@
 
 Material complementario para los asistentes. Aquí encontraréis los enlaces, conceptos y prompts que hemos visto durante la sesión, listos para copiar y reutilizar en vuestro día a día.
 
+> Las secciones están ordenadas igual que las slides del PPTX. En cada sección aparece el **nº de slide de referencia** — podéis buscar con *Cmd+F "Slide 14"* para saltar directamente.
+
 ---
 
 ## Antes de empezar — descargad la carpeta `demos/`
@@ -20,7 +22,7 @@ Cómo descargarla:
 
 ---
 
-## Conoce Claude Cowork
+## Recursos útiles
 
 | Recurso | Enlace |
 |---------|--------|
@@ -37,13 +39,15 @@ Cómo descargarla:
 
 ---
 
-## Qué es Cowork (en una frase)
+## Qué es Cowork (en una frase) · Slide 4
 
 > **De la conversación a la delegación.** En el chat preguntas y copias lo útil. En Cowork describes un resultado y Claude planifica, ejecuta y entrega los archivos donde se los pediste.
 
 Construido sobre la misma arquitectura que **Claude Code** — el sistema agéntico que Anthropic usa para fabricar software de producción.
 
-### Las 3 cosas que lo hacen posible
+---
+
+## Las 3 cosas que hacen posible Cowork · Slide 5
 
 | | |
 |---|---|
@@ -51,7 +55,9 @@ Construido sobre la misma arquitectura que **Claude Code** — el sistema agént
 | **Ejecutar** | El trabajo corre en un entorno aislado de tu ordenador. Tareas largas, sin tiempos de espera. |
 | **Conectar** | Alcanza los sistemas donde vive tu trabajo: correo, Drive, calendario, herramientas conectadas. |
 
-### Las 6 capacidades centrales
+---
+
+## Las 6 capacidades centrales · Slide 6
 
 1. **Conectores** — accede a tus herramientas: correo, Drive, Slack, calendarios.
 2. **Operaciones con archivos** — lee y crea archivos reales: `.docx`, `.xlsx`, `.pptx`, `.pdf`.
@@ -62,7 +68,7 @@ Construido sobre la misma arquitectura que **Claude Code** — el sistema agént
 
 ---
 
-## Qué necesitas para arrancar
+## Qué necesitas para arrancar · Slide 8
 
 - ☑ App **Claude Desktop** (Mac/Windows, gratis)
 - ☑ **Cuenta Claude con plan de pago** (Pro, Max, Team o Enterprise)
@@ -72,7 +78,7 @@ Construido sobre la misma arquitectura que **Claude Code** — el sistema agént
 
 ---
 
-## Vuestra primera tarea con Cowork (para reproducir en casa)
+## Demo — Vuestra primera tarea con Cowork · Slide 9
 
 La demo de *"primera tarea"* que habéis visto en directo la podéis replicar vosotros mismos. Es la forma más rápida de ver el flujo end-to-end de Cowork sin riesgo (solo lee, no modifica nada).
 
@@ -103,7 +109,18 @@ La demo de *"primera tarea"* que habéis visto en directo la podéis replicar vo
 
 ---
 
-## El ciclo completo — de carpeta caótica a presentación ejecutiva (reproducir en casa)
+## El ciclo de la tarea (4 pasos oficiales) · Slide 10
+
+1. **Describe qué quieres recibir** — qué mirar, qué devolver, dónde guardarlo.
+2. **Responde a unas preguntas** — Claude afina con preguntas clave (formato, ubicación, etc.).
+3. **Aléjate — o intervén** — ves el progreso, puedes redirigir en cualquier momento.
+4. **Abre tu trabajo terminado** — los archivos aparecen donde los pediste.
+
+> **Trata el resultado como un borrador.** Léelo como leerías un primer borrador de un compañero competente.
+
+---
+
+## Demo — De carpeta caótica a presentación ejecutiva · Slide 12
 
 Reproduce la demo del **walkthrough oficial** de Anthropic, aterrizada a un caso de Geinstal: partir de una carpeta con documentos sueltos de una revisión de herramientas del departamento de Estudios, y pedirle a Cowork una presentación ejecutiva para dirección.
 
@@ -155,7 +172,39 @@ Reproduce la demo del **walkthrough oficial** de Anthropic, aterrizada a un caso
 
 ---
 
-## Montar vuestro Project "Licitaciones-2026" (reproducir en casa)
+## Cómo dar contexto persistente a Cowork (3 niveles) · Slide 13
+
+| Nivel | Dónde | Para qué |
+|-------|-------|----------|
+| **Usuario** | Instrucciones globales (Settings) | Preferencias que aplican siempre: rol, tono, formatos favoritos |
+| **Proyecto** | Panel de instrucciones del Project | Quién participa, dónde viven las cosas, reglas del proyecto |
+| **Contenido** | Archivos en la carpeta del Project | Plantillas, históricos, criterios internos |
+
+### Ejemplo de instrucciones de Project — `Licitaciones-2026`
+
+```
+Eres mi asistente para el departamento de Estudios de Geinstal.
+Geinstal es una empresa de mantenimiento integral con 305 empleados,
+35M€ de facturación, especializada en HVAC, electricidad, fontanería
+y PCI. Sede en Sant Cugat del Vallès.
+
+Cuando analices pliegos:
+- Cita siempre la página del pliego de la que sacas cada dato.
+- Si no encuentras un dato: di "NO ESPECIFICADO" — no inventes.
+- Cruza los datos con /criterios-internos/ antes de recomendar.
+- Las recomendaciones deben ser una de tres: PRESENTARSE / NO
+  PRESENTARSE / CON SOCIO. Nada de "depende".
+
+Estructura de la carpeta:
+- /pliegos/ — PDFs de licitaciones entrantes
+- /criterios-internos/ — reglas de Geinstal sobre cuándo presentarse
+- /ofertas-presentadas/ — histórico de ofertas anteriores
+- /analisis/ — donde aterrizan los outputs
+```
+
+---
+
+## Demo — Montar vuestro Project "Licitaciones-2026" · Slide 14
 
 Montad el **Project que vais a usar en los Casos 4 y 5 del Bloque 2**. En la demo en directo se crea la carpeta desde cero; en casa os dejamos la estructura completa montada para que sólo tengáis que apuntar Cowork a ella y pegar las instrucciones.
 
@@ -241,7 +290,22 @@ Montad el **Project que vais a usar en los Casos 4 y 5 del Bloque 2**. En la dem
 
 ---
 
-## Valorar una oferta con Excel pesado (reproducir en casa)
+## El patrón de prompt — la receta oficial · Slide 15
+
+```
+PROMPT = ENTRADA + TRANSFORMACIÓN + SALIDA
+```
+
+| | ✗ Vago | ✓ Con patrón |
+|---|---|---|
+| **Prompt** | "Limpia mis archivos" | "Ordena mi carpeta Descargas por tipo de archivo en subcarpetas con fecha" |
+| **Entrada** | (ninguna) | "mi carpeta Descargas" |
+| **Transformación** | (ambigua) | "ordena por tipo de archivo" |
+| **Salida** | (ninguna) | "en subcarpetas con fecha" |
+
+---
+
+## Demo — Valorar una oferta con Excel pesado · Slide 17
 
 El caso **diario crítico de Estudios**. Todos manejáis plantillas Excel de ofertas con docenas o cientos de partidas — cada cliente con su estructura, sus códigos, sus unidades. Esta demo os enseña cómo Cowork ataca directamente ese trabajo.
 
@@ -301,7 +365,199 @@ El caso **diario crítico de Estudios**. Todos manejáis plantillas Excel de ofe
 
 ---
 
-## Consolidar facturas en un Excel (reproducir en casa)
+## Conectores — donde vive vuestro trabajo · Slide 18
+
+Anthropic mantiene **más de 38 conectores oficiales** sobre el estándar abierto **MCP (Model Context Protocol)**.
+
+| Categoría | Conectores destacados |
+|-----------|----------------------|
+| **Productividad (M365 destacado)** | Outlook · OneDrive · Teams · SharePoint · Gmail · Google Drive · Calendar · Slack · Notion · Dropbox · Box |
+| **Desarrollo** | GitHub · Jira · Linear · Azure DevOps |
+| **CRM / Ventas** | Salesforce · HubSpot · Apollo |
+| **Datos** | Snowflake · BigQuery · Databricks |
+| **Legal / Documentos** | Harvey · DocuSign |
+
+Activación: `Customize → Conectores → Authenticate`.
+
+---
+
+## Skills — qué son y cuándo crearlas · Slide 19
+
+Una Skill es un **procedimiento operativo completo** escrito en Markdown: pasos en orden, instrucciones exactas, plantillas de salida, ejemplos. El *"cómo lo hacemos aquí"* de una tarea repetida, capturado en un archivo que Claude ejecuta tal cual.
+
+### Crear una Skill cuando se cumple al menos UNO
+
+1. **Tarea que repites** con pequeñas variaciones.
+2. **Reglas internas** que siempre aplican (márgenes, formato, errores a evitar).
+3. **Conocimiento en una cabeza** que quieres hacer compartible.
+4. **Invocable con `/comando`** en vez de reexplicarlo cada vez.
+
+---
+
+## Skills — anatomía del SKILL.md · Slide 20
+
+Una Skill vive en un archivo `SKILL.md` con dos partes: un **frontmatter** con `name` + `description` (el **disparador**) y un cuerpo con las reglas.
+
+### Skills nativas de Cowork
+
+`.docx` · `.xlsx` · `.pptx` · `.pdf` · Markdown. Claude las invoca solo cuando la tarea las necesita.
+
+### El campo `description` NO es un resumen — es un disparador
+
+Claude lo lee para decidir si activar la Skill. Tiene que dejar clarísimo **cuándo** debe usarse.
+
+```yaml
+---
+name: analiza-pliego
+description: Analiza un pliego de licitación de mantenimiento integral.
+  Devuelve resumen ejecutivo, tabla de criterios y recomendación.
+  Úsalo cuando entre un pliego nuevo en /pliegos/.
+---
+```
+
+(Ver el SKILL.md completo en la sección **Caso 5** de este documento.)
+
+---
+
+## Plugins = Cowork especializado para tu rol · Slide 21
+
+> **Plugin = Skills + Conectores + Subagentes empaquetados para un rol**
+
+| Plugin | Qué incluye |
+|--------|-------------|
+| **Plugin de Ventas** | Skills de prospección y propuestas + conectores al CRM + subagentes por cuenta |
+| **Plugin de Finanzas** | Skills de modelado + Snowflake/Excel + subagentes por escenario |
+| **Plugin Legal** | Skills de revisión contractual + DocuSign + subagentes por cláusula |
+
+Plugins de código abierto para ventas, marketing, producto, finanzas, legal, RRHH, ingeniería en el directorio oficial: [claude.com/plugins](https://claude.com/plugins).
+
+---
+
+## Anatomía de un Plugin · Slide 22
+
+```
+plugin-ventas/
+├── plugin.json          ← manifiesto: nombre, descripción, dependencias
+├── skills/              ← las Skills que trae
+│   ├── preparar-llamada/
+│   │   └── SKILL.md
+│   ├── reporte-semanal/
+│   │   └── SKILL.md
+│   └── redactar-propuesta/
+│       └── SKILL.md
+├── connectors/          ← conectores opcionales que instala
+└── commands/            ← comandos /barra (/preparar-llamada, etc.)
+```
+
+Todo texto plano. Si no te gusta cómo funciona una Skill, abres el archivo y la editas.
+
+---
+
+## Tareas programadas — `/schedule` · Slide 23
+
+> **Skill = QUÉ hacer · Programación = CUÁNDO hacerlo.** Compone naturalmente.
+
+Dos formas de crear una tarea programada:
+
+- **Rápida** — en cualquier chat de Cowork, escribís `/schedule` y un asistente os guía.
+- **UI estructurada** — en la barra lateral de Cowork hay una sección **Scheduled** donde podéis crear, editar, pausar y ver el histórico de ejecuciones de vuestras tareas.
+
+### Ejemplos para Estudios
+
+| Cadencia | Tarea |
+|----------|-------|
+| Cada **lunes 8:00** | Resumen semanal de licitaciones nuevas en portales públicos |
+| Cada **viernes 17:00** | Balance de ofertas del equipo esta semana |
+| **Diariamente 12:00** | Correos urgentes en Outlook + borrador de respuesta |
+| **Mensualmente día 1** | Dashboard Excel con KPIs de Estudios |
+
+---
+
+## Demo — Gmail digest semanal (tarea programada) · Slide 24
+
+> **Este ejemplo usa Gmail** por simplicidad (sin carga corporativa). Para reproducirlo con vuestro **Outlook de Geinstal**, reemplazad *"Gmail"* por *"Outlook"* en el prompt — el resto funciona igual con el conector Outlook.
+
+**Paso 1 — Conectar el correo**: `Customize → Conectores → Gmail → Authenticate` (o `Outlook` si es lo vuestro).
+
+**Paso 2 — Crear la tarea programada** desde la sección `Scheduled` de la barra lateral → *New task*. Rellenad:
+
+- **Nombre**: `resumen-newsletters-semanal`
+- **Descripción**: *Resume las newsletters de la semana en un Markdown*
+- **Prompt**:
+
+  ```
+  Busca en mi Gmail las newsletters recibidas en los últimos
+  7 días. Identifica tú mismo cuáles son newsletters (contenido
+  periódico de empresas o autores, no correos personales ni
+  transaccionales) — suelen venir de direcciones tipo
+  newsletter@, info@, noreply@, o de servicios tipo Substack.
+
+  Para cada una extrae: remitente, asunto, fecha y un resumen
+  de 1-2 frases del tema principal.
+
+  Genera un resumen en
+  /Users/ironmac/Dev-local/claude-projects/Newsletters-Resumen/resumen-newsletters-YYYY-WW.md
+  con:
+
+  1. Cabecera con el rango de fechas de la semana.
+  2. Top 3 temas que se repiten esta semana (análisis transversal).
+  3. Los 5 enlaces más interesantes (tema concreto, no enlaces
+     genéricos tipo "ver en navegador" o "desuscribirse").
+  4. Listado agrupado por autor con asunto + resumen de 1-2 frases.
+  ```
+
+  > ⚠ **Importante**: en los prompts de tareas programadas **no añadáis** la coletilla *"muéstrame el plan antes de hacer nada"* que sí usamos en los prompts interactivos. Si la dejáis, Cowork mostrará el plan cuando se dispare la tarea y **se quedará esperando aprobación humana** — que nadie dará si estáis fuera o dormidos, y la tarea no se ejecutará. Las tareas programadas tienen que ser **autónomas**.
+
+- **Project**: déjalo vacío (es personal). Si queréis aislarlo, cread un Project `Newsletters` apuntando a `~/Documentos/Newsletters-Resumen/`.
+- **Frecuencia**: **Semanal · Lunes · 09:00**.
+
+**Paso 3 — Ejecutar una vez para ver el resultado** sin esperar al lunes:
+
+```
+Ejecuta ahora la tarea resumen-newsletters-semanal que acabo de
+programar para que veamos el resultado.
+```
+
+Cowork lanza el prompt, aparece el plan, aprobáis, y en un par de minutos tenéis el `.md` generado en la carpeta.
+
+> **Patrón reutilizable**: *conector + tarea programada + archivo de salida*. Cambiad *newsletters* por *correos con pliegos adjuntos de vuestro Comercial* y la misma estructura os genera un radar semanal automatizado.
+
+---
+
+## Los 6 prompts tipo con los que empezar · Slide 25
+
+Todos siguen el patrón **Entrada + Transformación + Salida**.
+
+### Organizar lo que ya tienes
+
+```
+1. "Ordena mi carpeta Descargas por tipo de archivo en
+   subcarpetas con fecha."
+
+2. "Renombra todos los archivos de esta carpeta con un
+   formato consistente de fecha-primero."
+
+3. "Crea un informe de gastos con formato a partir de
+   los recibos de esta carpeta."
+```
+
+### Crear lo que necesitas
+
+```
+4. "Construye un Excel de seguimiento de proyecto a
+   partir de estas notas, con columnas de estado y
+   vista resumen."
+
+5. "Convierte estas notas de reunión en una presentación
+   de slides."
+
+6. "Combina las transcripciones y notas de esta carpeta
+   en un informe formateado."
+```
+
+---
+
+## Demo — Consolidar facturas en un Excel · Slide 25
 
 Caso muy común: al final de cada mes os toca recopilar todas las facturas y tickets de gasto de los técnicos (combustible, peajes, materiales puntuales, dietas, subcontratas…) y meter el resumen en Excel para reporte o para SAGE. Cowork lee los PDFs, extrae los datos y genera el Excel en minutos.
 
@@ -377,7 +633,19 @@ Variedad deliberada: **importes entre 18 € y 2.450 €**, IVAs **21 % y 10 %**
 
 ---
 
-## Síntesis de investigación histórica — pide la señal (reproducir en casa)
+## Pide la señal, no un resumen · Slide 27
+
+> Una pregunta afilada os da algo accionable. Un resumen os da un resumen.
+
+| ❌ Prompt vago | ✓ Prompt con señal |
+|----------------|-------------------|
+| "Resume estas transcripciones" | "¿En qué coincidió la mayoría? ¿Quién discrepó y qué tienen en común los que discreparon?" |
+| "Analiza estos datos" | "¿Qué cuentas están en riesgo según los últimos 3 meses? ¿Cuál es el patrón común?" |
+| "Revisa estos artículos" | "¿Dónde se contradicen? ¿Qué afirmaciones necesitan más salvedades?" |
+
+---
+
+## Demo — Síntesis de investigación histórica · Slide 28
 
 El caso más potente del Bloque 1. Cowork procesa en paralelo **8 pliegos** que habéis analizado a lo largo de un año entero, los cruza con los criterios internos del departamento, y devuelve **inteligencia accionable para dirección**: no un resumen, sino las señales que permiten decidir inversiones formativas o técnicas del próximo año.
 
@@ -457,252 +725,7 @@ El caso más potente del Bloque 1. Cowork procesa en paralelo **8 pliegos** que 
 
 ---
 
-## El ciclo de la tarea (4 pasos oficiales)
-
-1. **Describe qué quieres recibir** — qué mirar, qué devolver, dónde guardarlo.
-2. **Responde a unas preguntas** — Claude afina con preguntas clave (formato, ubicación, etc.).
-3. **Aléjate — o intervén** — ves el progreso, puedes redirigir en cualquier momento.
-4. **Abre tu trabajo terminado** — los archivos aparecen donde los pediste.
-
-> **Trata el resultado como un borrador.** Léelo como leerías un primer borrador de un compañero competente.
-
----
-
-## El patrón de prompt — la receta oficial
-
-```
-PROMPT = ENTRADA + TRANSFORMACIÓN + SALIDA
-```
-
-| | ✗ Vago | ✓ Con patrón |
-|---|---|---|
-| **Prompt** | "Limpia mis archivos" | "Ordena mi carpeta Descargas por tipo de archivo en subcarpetas con fecha" |
-| **Entrada** | (ninguna) | "mi carpeta Descargas" |
-| **Transformación** | (ambigua) | "ordena por tipo de archivo" |
-| **Salida** | (ninguna) | "en subcarpetas con fecha" |
-
----
-
-## Cómo dar contexto persistente a Cowork (3 niveles)
-
-| Nivel | Dónde | Para qué |
-|-------|-------|----------|
-| **Usuario** | Instrucciones globales (Settings) | Preferencias que aplican siempre: rol, tono, formatos favoritos |
-| **Proyecto** | Panel de instrucciones del Project | Quién participa, dónde viven las cosas, reglas del proyecto |
-| **Contenido** | Archivos en la carpeta del Project | Plantillas, históricos, criterios internos |
-
-### Ejemplo de instrucciones de Project — `Licitaciones-2026`
-
-```
-Eres mi asistente para el departamento de Estudios de Geinstal.
-Geinstal es una empresa de mantenimiento integral con 305 empleados,
-35M€ de facturación, especializada en HVAC, electricidad, fontanería
-y PCI. Sede en Sant Cugat del Vallès.
-
-Cuando analices pliegos:
-- Cita siempre la página del pliego de la que sacas cada dato.
-- Si no encuentras un dato: di "NO ESPECIFICADO" — no inventes.
-- Cruza los datos con /criterios-internos/ antes de recomendar.
-- Las recomendaciones deben ser una de tres: PRESENTARSE / NO
-  PRESENTARSE / CON SOCIO. Nada de "depende".
-
-Estructura de la carpeta:
-- /pliegos/ — PDFs de licitaciones entrantes
-- /criterios-internos/ — reglas de Geinstal sobre cuándo presentarse
-- /ofertas-presentadas/ — histórico de ofertas anteriores
-- /analisis/ — donde aterrizan los outputs
-```
-
----
-
-## Conectores — donde vive vuestro trabajo
-
-Anthropic mantiene **más de 38 conectores oficiales** sobre el estándar abierto **MCP (Model Context Protocol)**.
-
-| Categoría | Conectores destacados |
-|-----------|----------------------|
-| **Productividad (M365 destacado)** | Outlook · OneDrive · Teams · SharePoint · Gmail · Google Drive · Calendar · Slack · Notion · Dropbox · Box |
-| **Desarrollo** | GitHub · Jira · Linear · Azure DevOps |
-| **CRM / Ventas** | Salesforce · HubSpot · Apollo |
-| **Datos** | Snowflake · BigQuery · Databricks |
-| **Legal / Documentos** | Harvey · DocuSign |
-
-Activación: `Settings → Connectors → Authenticate`.
-
----
-
-## Skills — cómo Claude sabe cuándo usarlas
-
-Una **Skill** es una instrucción reutilizable que vive en un archivo `SKILL.md`. Tiene dos partes: un frontmatter con `name` + `description` (el **disparador**) y un cuerpo con las reglas.
-
-### Skills nativas de Cowork
-
-`.docx` · `.xlsx` · `.pptx` · `.pdf` · Markdown. Claude las invoca solo cuando la tarea las necesita.
-
-### El campo `description` NO es un resumen — es un disparador
-
-Claude lo lee para decidir si activar la Skill. Tiene que dejar clarísimo **cuándo** debe usarse.
-
-```yaml
----
-name: analiza-pliego
-description: Analiza un pliego de licitación de mantenimiento integral.
-  Devuelve resumen ejecutivo, tabla de criterios y recomendación.
-  Úsalo cuando entre un pliego nuevo en /pliegos/.
----
-```
-
-(Ver el SKILL.md completo en la sección **Caso 5** de este documento.)
-
----
-
-## Plugins = Cowork especializado para tu rol
-
-> **Plugin = Skills + Conectores + Subagentes empaquetados para un rol**
-
-| Plugin | Qué incluye |
-|--------|-------------|
-| **Plugin de Ventas** | Skills de prospección y propuestas + conectores al CRM + subagentes por cuenta |
-| **Plugin de Finanzas** | Skills de modelado + Snowflake/Excel + subagentes por escenario |
-| **Plugin Legal** | Skills de revisión contractual + DocuSign + subagentes por cláusula |
-
-Plugins de código abierto para ventas, marketing, producto, finanzas, legal, RRHH, ingeniería en el directorio oficial: [claude.com/plugins](https://claude.com/plugins).
-
-### Anatomía de un Plugin
-
-```
-plugin-ventas/
-├── plugin.json          ← manifiesto: nombre, descripción, dependencias
-├── skills/              ← las Skills que trae
-│   ├── preparar-llamada/
-│   │   └── SKILL.md
-│   ├── reporte-semanal/
-│   │   └── SKILL.md
-│   └── redactar-propuesta/
-│       └── SKILL.md
-├── connectors/          ← conectores opcionales que instala
-└── commands/            ← comandos /barra (/preparar-llamada, etc.)
-```
-
-Todo texto plano. Si no te gusta cómo funciona una Skill, abres el archivo y la editas.
-
----
-
-## Tareas programadas — `/schedule`
-
-> **Skill = QUÉ hacer · Programación = CUÁNDO hacerlo.** Compone naturalmente.
-
-Dos formas de crear una tarea programada:
-
-- **Rápida** — en cualquier chat de Cowork, escribís `/schedule` y un asistente os guía.
-- **UI estructurada** — en la barra lateral de Cowork hay una sección **Scheduled** donde podéis crear, editar, pausar y ver el histórico de ejecuciones de vuestras tareas.
-
-### Ejemplos para Estudios
-
-| Cadencia | Tarea |
-|----------|-------|
-| Cada **lunes 8:00** | Resumen semanal de licitaciones nuevas en portales públicos |
-| Cada **viernes 17:00** | Balance de ofertas del equipo esta semana |
-| **Diariamente 12:00** | Correos urgentes en Outlook + borrador de respuesta |
-| **Mensualmente día 1** | Dashboard Excel con KPIs de Estudios |
-
-### Ejemplo completo de tarea programada (reproducir en casa)
-
-> **Este ejemplo usa Gmail** por simplicidad (sin carga corporativa). Para reproducirlo con vuestro **Outlook de Geinstal**, reemplazad *"Gmail"* por *"Outlook"* en el prompt — el resto funciona igual con el conector Outlook.
-
-**Paso 1 — Conectar el correo**: `Customize → Conectores → Gmail → Authenticate` (o `Outlook` si es lo vuestro).
-
-**Paso 2 — Crear la tarea programada** desde la sección `Scheduled` de la barra lateral → *New task*. Rellenad:
-
-- **Nombre**: `resumen-newsletters-semanal`
-- **Descripción**: *Resume las newsletters de la semana en un Markdown*
-- **Prompt**:
-
-  ```
-  Busca en mi Gmail las newsletters recibidas en los últimos
-  7 días. Identifica tú mismo cuáles son newsletters (contenido
-  periódico de empresas o autores, no correos personales ni
-  transaccionales) — suelen venir de direcciones tipo
-  newsletter@, info@, noreply@, o de servicios tipo Substack.
-
-  Para cada una extrae: remitente, asunto, fecha y un resumen
-  de 1-2 frases del tema principal.
-
-  Genera un resumen en
-  /Users/ironmac/Dev-local/claude-projects/Newsletters-Resumen/resumen-newsletters-YYYY-WW.md
-  con:
-
-  1. Cabecera con el rango de fechas de la semana.
-  2. Top 3 temas que se repiten esta semana (análisis transversal).
-  3. Los 5 enlaces más interesantes (tema concreto, no enlaces
-     genéricos tipo "ver en navegador" o "desuscribirse").
-  4. Listado agrupado por autor con asunto + resumen de 1-2 frases.
-  ```
-
-  > ⚠ **Importante**: en los prompts de tareas programadas **no añadáis** la coletilla *"muéstrame el plan antes de hacer nada"* que sí usamos en los prompts interactivos. Si la dejáis, Cowork mostrará el plan cuando se dispare la tarea y **se quedará esperando aprobación humana** — que nadie dará si estáis fuera o dormidos, y la tarea no se ejecutará. Las tareas programadas tienen que ser **autónomas**.
-
-- **Project**: déjalo vacío (es personal). Si queréis aislarlo, cread un Project `Newsletters` apuntando a `~/Documentos/Newsletters-Resumen/`.
-- **Frecuencia**: **Semanal · Lunes · 09:00**.
-
-**Paso 3 — Ejecutar una vez para ver el resultado** sin esperar al lunes:
-
-```
-Ejecuta ahora la tarea resumen-newsletters-semanal que acabo de
-programar para que veamos el resultado.
-```
-
-Cowork lanza el prompt, aparece el plan, aprobáis, y en un par de minutos tenéis el `.md` generado en la carpeta.
-
-> **Patrón reutilizable**: *conector + tarea programada + archivo de salida*. Cambiad *newsletters* por *correos con pliegos adjuntos de vuestro Comercial* y la misma estructura os genera un radar semanal automatizado.
-
----
-
-## Los 6 prompts tipo con los que empezar
-
-Todos siguen el patrón **Entrada + Transformación + Salida**.
-
-### Organizar lo que ya tienes
-
-```
-1. "Ordena mi carpeta Descargas por tipo de archivo en
-   subcarpetas con fecha."
-
-2. "Renombra todos los archivos de esta carpeta con un
-   formato consistente de fecha-primero."
-
-3. "Crea un informe de gastos con formato a partir de
-   los recibos de esta carpeta."
-```
-
-### Crear lo que necesitas
-
-```
-4. "Construye un Excel de seguimiento de proyecto a
-   partir de estas notas, con columnas de estado y
-   vista resumen."
-
-5. "Convierte estas notas de reunión en una presentación
-   de slides."
-
-6. "Combina las transcripciones y notas de esta carpeta
-   en un informe formateado."
-```
-
----
-
-## Pide la señal, no un resumen
-
-> Una pregunta afilada os da algo accionable. Un resumen os da un resumen.
-
-| ❌ Prompt vago | ✓ Prompt con señal |
-|----------------|-------------------|
-| "Resume estas transcripciones" | "¿En qué coincidió la mayoría? ¿Quién discrepó y qué tienen en común los que discreparon?" |
-| "Analiza estos datos" | "¿Qué cuentas están en riesgo según los últimos 3 meses? ¿Cuál es el patrón común?" |
-| "Revisa estos artículos" | "¿Dónde se contradicen? ¿Qué afirmaciones necesitan más salvedades?" |
-
----
-
-## Las 4 fronteras de seguridad de Cowork
+## Las 4 fronteras de seguridad de Cowork · Slide 29
 
 | Frontera | Qué significa |
 |----------|---------------|
@@ -715,7 +738,7 @@ Todos siguen el patrón **Entrada + Transformación + Salida**.
 
 ---
 
-## Dos hábitos que debéis tener
+## Dos hábitos que debéis tener · Slide 30
 
 ### 1. Revisar resultados
 
@@ -735,7 +758,7 @@ Cowork consume más cuota que chat. Tres reglas oficiales:
 
 ---
 
-## Elegir modelo — Opus, Sonnet, Haiku
+## Elegir modelo — Opus, Sonnet, Haiku · Slide 31
 
 Ajusta el modelo a la tarea. **No pongas el más potente por defecto** — Opus gasta unas 5× más que Sonnet.
 
@@ -747,13 +770,38 @@ Ajusta el modelo a la tarea. **No pongas el más potente por defecto** — Opus 
 
 ---
 
+## Resolución de problemas — incidencias comunes · Slide 32
+
+| Síntoma | Qué hacer |
+|---------|-----------|
+| *"Cowork is preparing your workspace"* tarda | Normal. El primer arranque en una sesión es más lento porque inicializa entorno. Paciencia (10–30 s). |
+| Una tarea se paró a la mitad | Normalmente es que cerraste la app. Dormir el ordenador está OK — la sesión sigue. Abre Cowork → continúa. |
+| Límite de uso alcanzado | Cowork gasta más que chat. Cambia a Sonnet/Haiku si la tarea lo permite. Monitoriza `Settings → Usage`. |
+| No encuentro el archivo que dijo que creó | Comprueba la carpeta autorizada. Puede haber caído en una subcarpeta distinta de la esperada. Usa el panel derecho. |
+
+> Si algo no va, primero pregúntale a Claude: **"explícame qué hiciste"**. Suele saber dónde está el problema.
+
+---
+
+## Hoja de ruta — los 5 pasos oficiales · Slide 33
+
+> *"Avanza al ritmo que te encaje. La secuencia importa más que el calendario."* — Curso oficial Anthropic
+
+1. 🧩 **Instala un Plugin** — busca uno que encaje con tu rol, instálalo y abre un archivo de Skill para mirarlo.
+2. 🎯 **Lanza algo real** — elige UNA tarea de tu trabajo. Hazla en Cowork. Itera hasta que quede bien.
+3. 🛠️ **Construye una Skill** — si repites la misma cosa cada semana, conviértela en Skill.
+4. ⏰ **Prográmala** — ponla en cadencia recurrente. Cada lunes a las 8, o cuando tenga sentido.
+5. 🤝 **Compártela** — empaqueta para tu equipo o, en Team / Enterprise, publícala.
+
+---
+
 # Casos prácticos del Bloque 2
 
 Los 5 prompts ejecutados en directo durante la sesión, listos para copiar y adaptar a vuestro propio trabajo.
 
 ---
 
-## Caso 1 · BAJA — Organizar carpeta de licitaciones nuevas
+## Caso 1 · BAJA — Organizar carpeta de licitaciones nuevas · Slides 37-40
 
 ### Prompt
 
@@ -782,7 +830,7 @@ Antes de mover nada, muéstrame el plan completo.
 
 ---
 
-## Caso 2 · MEDIA — Consolidar valoraciones de varios clientes
+## Caso 2 · MEDIA — Consolidar valoraciones de varios clientes · Slides 41-44
 
 ### Prompt
 
@@ -816,7 +864,7 @@ columnas de cada plantilla a los campos del consolidado.
 
 ---
 
-## Caso 3 · MEDIA — Claude en Chrome para portales web sin conector
+## Caso 3 · MEDIA — Claude en Chrome para portales web sin conector · Slides 45-49
 
 > **Pre-requisito**: tener instalada la extensión [claude.ai/chrome](https://claude.ai/chrome). Está en beta y disponible en los planes Pro, Max, Team y Enterprise (desde diciembre 2025).
 
@@ -868,7 +916,7 @@ si pide login, para y avísame.
 
 ---
 
-## Caso 4 · MEDIA-ALTA — Análisis completo de pliego dentro de un Project
+## Caso 4 · MEDIA-ALTA — Análisis completo de pliego dentro de un Project · Slides 50-54
 
 > Este caso usa el Project **Licitaciones-2026** ya montado, con sus instrucciones cargadas y carpetas `/criterios-internos/`, `/ofertas-presentadas/` y `/pliegos/`.
 
@@ -907,7 +955,7 @@ Cita siempre la página del pliego de la que sacas cada dato.
 
 ---
 
-## Caso 5 · ALTA — Crear una Skill personalizada de Geinstal
+## Caso 5 · ALTA — Crear una Skill personalizada de Geinstal · Slides 55-60
 
 ### La Skill: `/analiza-pliego`
 
@@ -981,32 +1029,7 @@ Ver /skills/analiza-pliego/plantilla.md
 
 ---
 
-## Resolución de problemas — incidencias comunes
-
-| Síntoma | Qué hacer |
-|---------|-----------|
-| *"Cowork is preparing your workspace"* tarda | Normal. El primer arranque en una sesión es más lento porque inicializa entorno. Paciencia (10–30 s). |
-| Una tarea se paró a la mitad | Normalmente es que cerraste la app. Dormir el ordenador está OK — la sesión sigue. Abre Cowork → continúa. |
-| Límite de uso alcanzado | Cowork gasta más que chat. Cambia a Sonnet/Haiku si la tarea lo permite. Monitoriza `Settings → Usage`. |
-| No encuentro el archivo que dijo que creó | Comprueba la carpeta autorizada. Puede haber caído en una subcarpeta distinta de la esperada. Usa el panel derecho. |
-
-> Si algo no va, primero pregúntale a Claude: **"explícame qué hiciste"**. Suele saber dónde está el problema.
-
----
-
-## Hoja de ruta — los 5 pasos oficiales
-
-> *"Avanza al ritmo que te encaje. La secuencia importa más que el calendario."* — Curso oficial Anthropic
-
-1. 🧩 **Instala un Plugin** — busca uno que encaje con tu rol, instálalo y abre un archivo de Skill para mirarlo.
-2. 🎯 **Lanza algo real** — elige UNA tarea de tu trabajo. Hazla en Cowork. Itera hasta que quede bien.
-3. 🛠️ **Construye una Skill** — si repites la misma cosa cada semana, conviértela en Skill.
-4. ⏰ **Prográmala** — ponla en cadencia recurrente. Cada lunes a las 8, o cuando tenga sentido.
-5. 🤝 **Compártela** — empaqueta para tu equipo o, en Team / Enterprise, publícala.
-
----
-
-## Deberes para la Sesión 3
+## Deberes para la Sesión 3 · Slide 62
 
 | Nivel | Tarea | Tiempo |
 |-------|-------|--------|
