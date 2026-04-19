@@ -8,7 +8,7 @@ Material complementario para los asistentes. Aquí encontraréis los enlaces, co
 
 Todas las demos que reproduciréis en casa usan archivos preparados que están en la carpeta [`demos/`](demos/) de este repositorio. Para seguir las prácticas **sin perder tiempo creando ficheros**, descargad toda la carpeta `demos/` a vuestro ordenador antes de la sesión.
 
-Dentro, cada subcarpeta corresponde a una demo concreta (por ejemplo `demos/slide-09-primera-tarea/`). A lo largo de este documento os indicaré **qué subcarpeta autorizar en Cowork** para cada caso.
+Dentro, cada subcarpeta corresponde a una demo concreta (por ejemplo `demos/09-primera-tarea/`). A lo largo de este documento os indicaré **qué subcarpeta autorizar en Cowork** para cada caso.
 
 Cómo descargarla:
 
@@ -78,7 +78,7 @@ La demo de *"primera tarea"* que habéis visto en directo la podéis replicar vo
 
 ### Carpeta a usar
 
-`demos/slide-09-primera-tarea/` — contiene:
+`demos/09-primera-tarea/` — contiene:
 
 | Archivo | Qué es |
 |---------|--------|
@@ -88,7 +88,7 @@ La demo de *"primera tarea"* que habéis visto en directo la podéis replicar vo
 
 ### Cómo reproducirla en 3 minutos
 
-1. **Abre Claude Desktop** → cambia al modo **Cowork** → **autoriza la carpeta `demos/slide-09-primera-tarea/`**.
+1. **Abre Claude Desktop** → cambia al modo **Cowork** → **autoriza la carpeta `demos/09-primera-tarea/`**.
 
 2. **Lanza este prompt** en el chat:
 
@@ -109,7 +109,7 @@ Reproduce la demo del **walkthrough oficial** de Anthropic, aterrizada a un caso
 
 ### Carpeta a usar
 
-`demos/slide-12-tooling-review/` — contiene:
+`demos/12-revision-herramientas/` — contiene:
 
 | Archivo | Qué es |
 |---------|--------|
@@ -122,7 +122,7 @@ Reproduce la demo del **walkthrough oficial** de Anthropic, aterrizada a un caso
 
 ### Cómo reproducirla
 
-1. **Autoriza** en Cowork la carpeta `demos/slide-12-tooling-review/`.
+1. **Autoriza** en Cowork la carpeta `demos/12-revision-herramientas/`.
 
 2. **Lanza este prompt**:
 
@@ -137,7 +137,7 @@ Reproduce la demo del **walkthrough oficial** de Anthropic, aterrizada a un caso
      - Cronograma del piloto
      - KPIs objetivo (con gráfico editable)
      - Próximos pasos y decisión pedida a dirección
-   Guárdala como tooling-review-direccion.pptx.
+   Guárdala como revision-herramientas-direccion.pptx.
    ```
 
 3. **Revisa el plan** (4 pasos: leer docs → sintetizar → construir outline → generar slides) y aprueba.
