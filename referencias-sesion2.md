@@ -165,18 +165,20 @@ Montad el **Project que vais a usar en los Casos 4 y 5 del Bloque 2**. En la dem
 
 ```
 14-licitaciones-2026/
-├── pliegos/                    ← PDFs de licitaciones entrantes
+├── pliegos/                         ← pliegos y plantillas de oferta que manda el cliente
 │   ├── pliego-hospital-sant-pau.pdf
-│   └── pliego-imdea-alimentacion.pdf
-├── ofertas-presentadas/        ← histórico (vacío en la demo)
-├── plantillas/
+│   ├── pliego-imdea-alimentacion.pdf
+│   └── oferta-ClienteX.xlsx         (plantilla pesada del cliente — se usa en la demo 17)
+├── ofertas-presentadas/             ← histórico y salida de ofertas valoradas
+├── plantillas/                      ← plantillas internas de Geinstal
 │   ├── plantilla-memoria-tecnica.docx
-│   └── plantilla-valoracion-oferta.xlsx
-├── criterios-internos/         ← reglas de Geinstal escritas
+│   ├── plantilla-valoracion-oferta.xlsx
+│   └── costes-internos-2026.xlsx    (105 códigos Geinstal + reglas transversales)
+├── criterios-internos/              ← reglas de Geinstal (cuándo presentarse, márgenes…)
 │   ├── cuando-presentarse.md
 │   ├── margenes-minimos.md
 │   └── capacidad-actual.md
-└── analisis/                   ← salida de Cowork (vacía)
+└── analisis/                        ← salida de Cowork cuando analiza pliegos
 ```
 
 ### Cómo reproducirla
@@ -186,17 +188,41 @@ Montad el **Project que vais a usar en los Casos 4 y 5 del Bloque 2**. En la dem
 2. **Pega este texto en el panel de instrucciones** del Project:
 
    ```
-   Eres mi asistente del departamento de Estudios de Geinstal. Geinstal
-   es una empresa de mantenimiento integral en Sant Cugat del Vallès con
-   305 empleados y 35 M€ de facturación.
+   Eres mi asistente del departamento de Estudios de Geinstal.
+   Geinstal es una empresa de mantenimiento integral en Sant Cugat
+   del Vallès con 305 empleados y 35 M€ de facturación.
 
-   Cuando analices pliegos:
-   - Cita siempre la página del pliego de la que sacas cada dato.
-   - Cruza siempre tus recomendaciones con los archivos de
-     `criterios-internos/`.
-   - Drafts de memoria en .docx, finales en PDF.
-   - Guarda los análisis en la subcarpeta `analisis/`.
+   Estructura de este Project:
+   - pliegos/             → pliegos y plantillas de oferta del cliente
+   - plantillas/          → plantillas internas (memoria técnica,
+                            costes 2026, valoración de oferta)
+   - criterios-internos/  → reglas de Geinstal (cuándo presentarse,
+                            márgenes mínimos, capacidad actual)
+   - ofertas-presentadas/ → histórico + ofertas valoradas (salida)
+   - analisis/            → salida de análisis de pliegos
+
+   Reglas generales:
+   - Si no encuentras un dato, di "NO ESPECIFICADO" — nunca inventes.
+   - Cita siempre la página del pliego cuando extraigas datos de un PDF.
+   - Cruza tus decisiones con los archivos de `criterios-internos/`
+     (distancia máxima, margen mínimo, capacidad del equipo).
    - No borres nada sin pedirme confirmación.
+
+   Para ANÁLISIS de pliegos (PDF del cliente → recomendación):
+   - Devuelve resumen ejecutivo + tabla de criterios + recomendación
+     (una de tres: PRESENTARSE / NO PRESENTARSE / CON SOCIO).
+   - Guarda el análisis en `analisis/[nombre-pliego]/`.
+   - Drafts de memoria técnica en .docx, finales en PDF.
+
+   Para VALORACIÓN de ofertas (plantilla Excel que manda el cliente):
+   - Respeta la estructura original del Excel (no reordenes columnas
+     ni capítulos).
+   - Cruza partida por partida con `plantillas/costes-internos-2026.xlsx`.
+   - Aplica el margen que te indique el prompt.
+   - Partidas sin equivalente claro → déjalas vacías y lístalas en
+     una hoja nueva "Sin-match".
+   - Partidas ambiguas o duplicadas → hoja "Revisar".
+   - Guarda la oferta valorada en `ofertas-presentadas/`.
    ```
 
 3. **Lanza este prompt** (el "día 1 del becario" — sirve para comprobar que el Project ha cargado bien el contexto):
@@ -219,65 +245,59 @@ Montad el **Project que vais a usar en los Casos 4 y 5 del Bloque 2**. En la dem
 
 El caso **diario crítico de Estudios**. Todos manejáis plantillas Excel de ofertas con docenas o cientos de partidas — cada cliente con su estructura, sus códigos, sus unidades. Esta demo os enseña cómo Cowork ataca directamente ese trabajo.
 
-### Carpeta a usar
+> **Esta demo se hace dentro del Project `Licitaciones-2026`** que montasteis en el apartado anterior. Los dos archivos necesarios ya viven en la estructura del Project (`pliegos/` y `plantillas/`) — no hay que mover nada.
 
-`demos/17-valorar-oferta/` — contiene:
+### Archivos implicados
 
-| Archivo | Qué es |
-|---------|--------|
-| `oferta-ClienteX.xlsx` | Plantilla realista de un hospital grande (Vall d'Hebron) — **9 hojas · 177 partidas** distribuidas en Climatización, Electricidad, PCI, Fontanería, Elevadores, Equipos especiales, Personal adscrito y Mejoras. Celdas amarillas vacías a rellenar. Fórmulas de subtotal y total general ya montadas. |
-| `costes-internos-2026.xlsx` | Costes internos Geinstal (**105 códigos** en 6 secciones) + hoja de *Reglas transversales* (márgenes mínimos, recargos, overhead). |
+| Archivo | Ubicación | Qué es |
+|---------|-----------|--------|
+| `oferta-ClienteX.xlsx` | `pliegos/` | Plantilla realista de un hospital grande (Vall d'Hebron) — **9 hojas · 177 partidas** distribuidas en Climatización, Electricidad, PCI, Fontanería, Elevadores, Equipos especiales, Personal adscrito y Mejoras. Celdas amarillas vacías a rellenar. Fórmulas de subtotal y total general ya montadas. |
+| `costes-internos-2026.xlsx` | `plantillas/` | Costes internos Geinstal (**105 códigos** en 6 secciones) + hoja de *Reglas transversales* (márgenes mínimos, recargos, overhead). |
 
 > **Deliberadamente algunas partidas de la plantilla no tienen equivalente exacto** en los costes internos (ej. *"Supervisión remota BMS con integración Gridcontrol v5"*, *"Sistema tubo neumático transporte muestras"*, *"Mantenimiento sistema aire comprimido medicinal"*). Eso fuerza que Cowork genere la hoja *"Sin-match"*.
 
 ### Cómo reproducirla
 
-1. **Autoriza** en Cowork la carpeta `demos/17-valorar-oferta/` (o cópiala dentro de tu Project `Licitaciones-2026`).
+1. **Abre un chat nuevo** dentro del Project `Licitaciones-2026` (el Project ya sabe qué es `pliegos/`, `plantillas/` y `ofertas-presentadas/` porque está en sus instrucciones).
 
 2. **Lanza este prompt**:
 
    ```
-   Mira la plantilla del cliente en oferta-ClienteX.xlsx. Es un
-   Excel con 9 hojas (1 resumen + 8 capítulos técnicos). Rellena
-   en cada capítulo las columnas F (Precio unitario oferta) y G
-   (Total) cruzando con los costes internos de Geinstal en
-   costes-internos-2026.xlsx.
+   Valórame la oferta que tenemos del Hospital Vall d'Hebron.
 
-   Reglas:
+   La plantilla del cliente está en pliegos/oferta-ClienteX.xlsx.
+   Tiene 9 hojas (1 resumen + 8 capítulos técnicos). Rellena en
+   cada capítulo las columnas F (Precio unitario oferta) y G (Total)
+   cruzando con plantillas/costes-internos-2026.xlsx.
+
+   Instrucciones específicas de esta oferta:
    - Aplica un margen global del 18 % sobre nuestro coste interno.
-   - La columna G se calcula con la fórmula =D*F que ya está en el
-     Excel — al rellenar F se actualiza sola. No la sobreescribas.
-   - Si una partida del cliente no tiene equivalente claro en los
-     costes internos, déjala vacía en la columna F y añádela a una
-     hoja nueva "Sin-match" con: código, descripción, capítulo y
-     por qué no la has encontrado.
-   - Si detectas partidas duplicadas, ambiguas o con cantidades
-     sospechosas en la plantilla del cliente, márcalas en una hoja
-     "Revisar".
+   - Respeta las fórmulas =D*F y =SUM() que ya están en el Excel —
+     al rellenar F, los totales y subtotales se actualizan solos.
+   - Al terminar, escribe en ofertas-presentadas/ un archivo
+     resumen-vallhebron.md con: importe total anual, nº de partidas
+     valoradas/sin-match/a-revisar, 5 partidas con margen más bajo
+     y 5 con margen más alto, riesgos detectados.
 
-   Al terminar, escribe un resumen.md con:
-   - Importe total anual de la oferta (suma de los 8 capítulos)
-   - Número de partidas valoradas / sin match / a revisar
-   - 5 partidas con margen más bajo y 5 con margen más alto
-   - Cualquier riesgo detectado
-
-   Guarda el Excel como oferta-ClienteX-valorada.xlsx manteniendo
-   la estructura original.
+   Guarda el Excel valorado como
+   ofertas-presentadas/oferta-ClienteX-valorada.xlsx.
 
    Antes de hacer nada muéstrame el plan de lo que vas a realizar.
    ```
 
-3. **Revisa el plan**: leer plantilla del cliente → leer costes → mapear capítulo por capítulo → rellenar columnas → generar hojas Sin-match y Revisar → guardar. Aprueba.
+3. **Revisa el plan**: leer plantilla del cliente → leer costes → mapear capítulo por capítulo → rellenar columnas → generar hojas Sin-match y Revisar (según las reglas del Project) → guardar en `ofertas-presentadas/`. Aprueba.
 
 4. **Abre el `.xlsx` resultante** y comprueba:
    - Los **subtotales de cada capítulo** se han calculado solos (fórmulas `=SUM(...)` actualizadas).
    - El **total general** aparece en la hoja `Resumen`.
    - La hoja **`Sin-match`** lista las partidas que Cowork no ha podido cruzar (debería incluir, al menos, las partidas singulares del hospital que no están en costes internos).
-   - El **`resumen.md`** trae la síntesis ejecutiva.
+   - El **`resumen-vallhebron.md`** trae la síntesis ejecutiva.
 
 5. **Itera**: pide *"explícame cómo has calculado el total de la partida P-HVAC-042"* y Cowork te contará qué código interno usó, qué margen aplicó y qué asunciones tomó. Cada celda es **auditable**.
 
-> Lección clave: el 90 % del Excel se rellena solo. Tu trabajo como humano es revisar las partidas sin match (20-30 típicamente) y decidir el coste. **Pasas de 4 horas de copia-pega a 20 minutos de revisión técnica.**
+> **Lección clave**: el 90 % del Excel se rellena solo. Tu trabajo como humano es revisar las partidas sin match (20-30 típicamente) y decidir el coste. **Pasas de 4 horas de copia-pega a 20 minutos de revisión técnica.**
+>
+> Y lo más importante: el Project `Licitaciones-2026` cubre **tanto el análisis de pliegos como la valoración de ofertas** gracias a las reglas condicionales del panel de instrucciones. Un único asistente contextualizado para todo el flujo del departamento.
 
 ---
 
