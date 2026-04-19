@@ -138,6 +138,8 @@ Reproduce la demo del **walkthrough oficial** de Anthropic, aterrizada a un caso
      - KPIs objetivo (con gráfico editable)
      - Próximos pasos y decisión pedida a dirección
    Guárdala como revision-herramientas-direccion.pptx.
+
+   Antes de hacer nada muestrame el plan de lo que vas a realizar
    ```
 
 3. **Revisa el plan** (4 pasos: leer docs → sintetizar → construir outline → generar slides) y aprueba.
@@ -150,6 +152,66 @@ Reproduce la demo del **walkthrough oficial** de Anthropic, aterrizada a un caso
 5. **Itera si hace falta**: *"cambia el título de la slide 3"*, *"añade una slide de riesgos entre estado actual y propuesta"*. Cowork edita el mismo archivo.
 
 > Este es el ejercicio más completo de la sesión: toca **leer varios tipos de archivo**, **sintetizar en varios pasos**, **generar un archivo Office nativo**, e **iterar sobre el resultado**. El ciclo de la tarea en su forma más rica.
+
+---
+
+## Montar vuestro Project "Licitaciones-2026" (reproducir en casa)
+
+Montad el **Project que vais a usar en los Casos 4 y 5 del Bloque 2**. En la demo en directo se crea la carpeta desde cero; en casa os dejamos la estructura completa montada para que sólo tengáis que apuntar Cowork a ella y pegar las instrucciones.
+
+### Carpeta a usar
+
+`demos/14-licitaciones-2026/` — estructura de 5 subcarpetas lista para usar como Project:
+
+```
+14-licitaciones-2026/
+├── pliegos/                    ← PDFs de licitaciones entrantes
+│   ├── pliego-hospital-sant-pau.pdf
+│   └── pliego-imdea-alimentacion.pdf
+├── ofertas-presentadas/        ← histórico (vacío en la demo)
+├── plantillas/
+│   ├── plantilla-memoria-tecnica.docx
+│   └── plantilla-valoracion-oferta.xlsx
+├── criterios-internos/         ← reglas de Geinstal escritas
+│   ├── cuando-presentarse.md
+│   ├── margenes-minimos.md
+│   └── capacidad-actual.md
+└── analisis/                   ← salida de Cowork (vacía)
+```
+
+### Cómo reproducirla
+
+1. **Crea un nuevo Project en Cowork** y apúntalo a la carpeta `demos/14-licitaciones-2026/`.
+
+2. **Pega este texto en el panel de instrucciones** del Project:
+
+   ```
+   Eres mi asistente del departamento de Estudios de Geinstal. Geinstal
+   es una empresa de mantenimiento integral en Sant Cugat del Vallès con
+   305 empleados y 35 M€ de facturación.
+
+   Cuando analices pliegos:
+   - Cita siempre la página del pliego de la que sacas cada dato.
+   - Cruza siempre tus recomendaciones con los archivos de
+     `criterios-internos/`.
+   - Drafts de memoria en .docx, finales en PDF.
+   - Guarda los análisis en la subcarpeta `analisis/`.
+   - No borres nada sin pedirme confirmación.
+   ```
+
+3. **Lanza este prompt** (el "día 1 del becario" — sirve para comprobar que el Project ha cargado bien el contexto):
+
+   ```
+   Acabo de crear este Project. Léete todos los archivos que hay
+   en la carpeta y dime qué tienes, para qué crees que sirve, y
+   qué instrucciones seguirás. Si algo no queda claro, pregúntame.
+
+   Antes de hacer nada muestrame el plan de lo que vas a realizar.
+   ```
+
+4. **Revisa la respuesta**: debería reconocer los 2 pliegos, los 3 archivos de `criterios-internos/`, las 2 plantillas, y entender la estructura de carpetas. Si te hace preguntas de clarificación, respóndelas.
+
+> Con esto ya tenéis el Project listo para los Casos 4 y 5 del Bloque 2. En el Caso 4 pedimos un análisis completo del pliego de Sant Pau; en el Caso 5 encapsulamos ese análisis en una Skill reutilizable.
 
 ---
 
