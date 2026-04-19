@@ -937,7 +937,7 @@ Para cada una recoge: número expediente, órgano contratante,
 objeto, importe, fecha límite presentación, link al pliego.
 
 Guarda los resultados en
-/Licitaciones-2026/radar/place-AAAA-MM-DD.xlsx
+radar/place-AAAA-MM-DD.xlsx
 en mi carpeta Cowork.
 
 NO me logues con mis credenciales —
@@ -949,6 +949,24 @@ si pide login, para y avísame.
 - **Estructura habitual**: INPUT (página PLACE) + TRANSFORMACIÓN (extraer con criterios) + OUTPUT (Excel en carpeta).
 - 🚨 **Última frase crítica**: Chrome opera tu navegador real. Restricción explícita: nada de credenciales, formularios o pagos sin tu OK.
 - ⚠ **Beta — sitios de confianza**: existe riesgo de *prompt injection* desde la web. Empezar por sitios institucionales (PLACE, BOE, perfiles del contratante).
+
+### Cómo reproducirla en casa
+
+Este caso no requiere archivos de input — se ejecuta sobre un portal web público en vivo (`place.gob.es`). Prerrequisitos y pasos:
+
+1. **Extensión Claude en Chrome** instalada (Chrome Web Store → "Claude"). Disponible en Pro/Max/Team/Enterprise desde diciembre 2025.
+2. **Abre el Project `Licitaciones-2026`** en Cowork Desktop para que el output del radar aterrice dentro del Project.
+3. **Navega en Chrome a [https://contrataciondelestado.es](https://contrataciondelestado.es)** (PLACE). Filtra por *servicios* y *Cataluña* para limitar resultados de la demo.
+4. **Activa la extensión** desde el icono junto a la barra de URL. Autoriza la primera vez el dominio `contrataciondelestado.es`.
+5. **Pega el prompt** tal cual. Revisa el plan que Cowork propone antes de aprobar.
+6. **Output esperado**: `radar/place-2026-04-21.xlsx` dentro del Project `Licitaciones-2026/` (la carpeta `radar/` ya existe con un `LEEME.md` — Cowork sólo añade el Excel).
+
+Qué verificar al ejecutar la demo:
+
+- **Respeta la restricción de credenciales**: si PLACE pide login en algún momento, Cowork para y avisa. No intenta rellenar ningún formulario.
+- **Filtra correctamente**: sólo debería extraer licitaciones de servicios en Cataluña con importe > 100.000 € publicadas en los últimos 7 días.
+- **Cita el link al pliego**: cada fila debe tener la URL real del pliego en PLACE, no una inventada.
+- **Plan B**: si PLACE cambia HTML o va lento durante la formación, enseñad un vídeo grabado o usad un portal alternativo (DOGC, perfil de contratante de un hospital).
 
 ---
 
