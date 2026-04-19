@@ -23,3 +23,8 @@ demos/14-licitaciones-2026/analisis/*
 !demos/14-licitaciones-2026/analisis/LEEME.md
 demos/14-licitaciones-2026/ofertas-presentadas/*
 !demos/14-licitaciones-2026/ofertas-presentadas/LEEME.md
+
+# Demo 25 — la subcarpeta informe/ sólo contiene un LEEME.md canónico.
+# El informe-gastos.xlsx lo genera Cowork al ejecutar el prompt.
+demos/25-informe-gastos/informe/*
+!demos/25-informe-gastos/informe/LEEME.md

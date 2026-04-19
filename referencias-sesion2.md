@@ -301,6 +301,82 @@ El caso **diario crítico de Estudios**. Todos manejáis plantillas Excel de ofe
 
 ---
 
+## Consolidar facturas en un Excel (reproducir en casa)
+
+Caso muy común: al final de cada mes os toca recopilar todas las facturas y tickets de gasto de los técnicos (combustible, peajes, materiales puntuales, dietas, subcontratas…) y meter el resumen en Excel para reporte o para SAGE. Cowork lee los PDFs, extrae los datos y genera el Excel en minutos.
+
+> **Demo transversal a los 3 grupos**: esta misma demo la usaremos en la **Sesión 2B (Mantenimiento)** con gastos de campo y en la **Sesión 3A (Administración)** con facturas entrantes que van al ERP. Solo cambia la categorización.
+
+### Carpeta a usar
+
+`demos/25-informe-gastos/` — contiene:
+
+| Archivo | Qué representa |
+|---------|----------------|
+| `factura-01-repsol-combustible.pdf` | Recibo de repostaje flota (IVA 21%) |
+| `factura-02-abertis-peajes.pdf` | Resumen mensual de peajes (IVA 21%) |
+| `factura-03-wurth-tornilleria.pdf` | Factura profesional con 6 líneas |
+| `factura-04-leroy-merlin-obra.pdf` | Herramientas puntuales |
+| `factura-05-salvador-escoda-hvac.pdf` | Material HVAC (importe medio-alto) |
+| `factura-06-air-liquide-gases.pdf` | Gases técnicos + alquiler botellas |
+| `factura-07-restaurante-dieta.pdf` | Dieta comida trabajo (IVA 10%) |
+| `factura-08-saba-parking.pdf` | Parking hospital (IVA 21%) |
+| `factura-09-vodafone-movil.pdf` | Factura telco empresa |
+| `factura-10-epis-proteccion.pdf` | EPIs (cascos, arneses, guantes) |
+| `factura-11-subcontrata-ascensores.pdf` | **Importe alto** — intervención especialista |
+| `factura-12-labaqua-legionella.pdf` | Análisis Legionella |
+| `factura-13-ferreteria-local.pdf` | Ticket ferretería pequeño |
+| `factura-14-hotel-desplazamiento.pdf` | Hotel con 2 IVAs mezclados (10% + 21%) |
+| `factura-15-ticket-ambiguo.pdf` | **Ticket con datos ilegibles** — sin IVA desglosado, nombre del bar borroso |
+| `informe/` | Subcarpeta de salida — aquí aterriza el Excel generado |
+
+Variedad deliberada: **importes entre 18 € y 2.450 €**, IVAs **21 % y 10 %** mezclados, un ticket ambiguo que obligará a Cowork a usar la hoja *Alertas* (no inventa lo que no se ve).
+
+### Cómo reproducirla
+
+1. **Autoriza** en Cowork la carpeta `demos/25-informe-gastos/`.
+
+2. **Lanza este prompt**:
+
+   ```
+   Analiza todas las facturas PDF de esta carpeta y consolídalas
+   en un Excel informe-gastos.xlsx dentro de la subcarpeta informe/.
+
+   Para cada factura extrae: nº factura, fecha, proveedor, NIF/CIF,
+   concepto breve, categoría (combustible, peajes, repuestos, material
+   eléctrico, EPIs, restauración, telefonía, subcontratas, laboratorio,
+   otros), base imponible, IVA (%), IVA (€), total.
+
+   El Excel debe tener 4 hojas:
+   1. "Gastos" — una fila por factura, ordenada por fecha.
+   2. "Por categoría" — suma del total por categoría con % sobre
+      el total general.
+   3. "Por proveedor" — top proveedores por importe acumulado.
+   4. "Alertas" — facturas que requieren revisión humana: importes
+      fuera de rango, IVAs que no cuadran, datos ilegibles, conceptos
+      ambiguos, fechas raras.
+
+   Si algún dato no es legible (NIF borroso, IVA no desglosado),
+   déjalo vacío y añade esa factura a "Alertas" con el motivo.
+   Nunca inventes un dato.
+
+   Antes de hacer nada, muéstrame el plan.
+   ```
+
+3. **Revisa el plan** de Cowork (leer los 15 PDFs → extraer datos → categorizar → consolidar → alertas → guardar) y aprueba.
+
+4. **Abre `informe/informe-gastos.xlsx`** y comprueba:
+   - La hoja **"Gastos"** tiene las 15 facturas ordenadas por fecha.
+   - La hoja **"Por categoría"** agrupa (`combustible`, `EPIs`, `subcontratas`, etc.) con porcentajes.
+   - La hoja **"Por proveedor"** destaca al top-1 (subcontrata ascensores, ~2.450 €).
+   - La hoja **"Alertas"** contiene al menos la **`factura-15-ticket-ambiguo.pdf`** con motivo *"nombre del establecimiento no legible, IVA no desglosado"*.
+
+5. **Itera**: pide *"explícame cómo has calculado el IVA de la factura 14"* (hotel con 2 IVAs) y Cowork detalla el razonamiento por línea. Cada decisión es auditable.
+
+> **ROI del caso**: 15 facturas a 2-3 minutos cada una = 30-45 minutos manuales. Cowork lo hace en 2-3 minutos. Si recibís 60-80 facturas al mes (realista en Mantenimiento o Administración), ahorráis **2-4 horas mensuales** solo en esta tarea.
+
+---
+
 ## El ciclo de la tarea (4 pasos oficiales)
 
 1. **Describe qué quieres recibir** — qué mirar, qué devolver, dónde guardarlo.
@@ -473,7 +549,7 @@ Dos formas de crear una tarea programada:
   de 1-2 frases del tema principal.
 
   Genera un resumen en
-  ~/Documentos/Newsletters-Resumen/resumen-newsletters-YYYY-WW.md
+  /Users/ironmac/Dev-local/claude-projects/Newsletters-Resumen/resumen-newsletters-YYYY-WW.md
   con:
 
   1. Cabecera con el rango de fechas de la semana.
