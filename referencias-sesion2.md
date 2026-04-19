@@ -806,14 +806,14 @@ Los 5 prompts ejecutados en directo durante la sesión, listos para copiar y ada
 ### Prompt
 
 ```
-Mira la carpeta /Descargas/licitaciones-entrantes/.
+Mira la carpeta licitaciones-entrantes/.
 
 Para cada archivo:
 1. Identifica si es un pliego, un anexo, una memoria, o
-   "no sé" — déjalo en una carpeta /sin-clasificar.
+   "no sé" — déjalo en una carpeta sin-clasificar/.
 2. Identifica el cliente y la fecha del documento.
 3. Crea una carpeta destino con formato
-   /Licitaciones-2026/AAAA-MM-cliente-objeto/.
+   organizadas/AAAA-MM-cliente-objeto/.
 4. Mueve y renombra los archivos a esa carpeta destino
    (pliego.pdf, anexo-N.pdf, memoria-base.docx).
 5. Genera un index.md con un resumen de qué hay en
