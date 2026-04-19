@@ -458,7 +458,7 @@ Dos formas de crear una tarea programada:
 
 **Paso 2 — Crear la tarea programada** desde la sección `Scheduled` de la barra lateral → *New task*. Rellenad:
 
-- **Nombre**: `digest-newsletters-semanal`
+- **Nombre**: `resumen-newsletters-semanal`
 - **Descripción**: *Resume las newsletters de la semana en un Markdown*
 - **Prompt**:
 
@@ -472,8 +472,8 @@ Dos formas de crear una tarea programada:
   Para cada una extrae: remitente, asunto, fecha y un resumen
   de 1-2 frases del tema principal.
 
-  Genera un digest en
-  ~/Documentos/Newsletters-Digest/digest-newsletters-YYYY-WW.md
+  Genera un resumen en
+  ~/Documentos/Newsletters-Resumen/resumen-newsletters-YYYY-WW.md
   con:
 
   1. Cabecera con el rango de fechas de la semana.
@@ -485,13 +485,13 @@ Dos formas de crear una tarea programada:
   Antes de hacer nada, muéstrame el plan.
   ```
 
-- **Project**: déjalo vacío (es personal). Si queréis aislarlo, creadun Project `Newsletters` apuntando a `~/Documentos/Newsletters-Digest/`.
+- **Project**: déjalo vacío (es personal). Si queréis aislarlo, cread un Project `Newsletters` apuntando a `~/Documentos/Newsletters-Resumen/`.
 - **Frecuencia**: **Semanal · Lunes · 09:00**.
 
 **Paso 3 — Ejecutar una vez para ver el resultado** sin esperar al lunes:
 
 ```
-Ejecuta ahora la tarea digest-newsletters-semanal que acabo de
+Ejecuta ahora la tarea resumen-newsletters-semanal que acabo de
 programar para que veamos el resultado.
 ```
 
