@@ -1112,7 +1112,7 @@ Cowork abre la entrevista con 4 preguntas consecutivas. Las respuestas:
 > con un path a un PDF.
 > ```
 
-> ℹ️ **Ojo con el "pushy"**: el SKILL.md oficial recomienda que la descripción de activación sea **un poco insistente** — incluir contextos donde la skill debería usarse aunque el usuario no lo pida explícitamente. Para evitar el sub-trigger (que no se active cuando debería), di algo como: *"Actívate también si el usuario pega o abre un PDF en pliegos/, sin pedir análisis, porque lo primero que querrá es un resumen."*
+> ℹ️ **Ojo con la activación — hazla insistente**: el SKILL.md oficial recomienda que la descripción sea **proactiva**, no tímida. Es decir, que Claude active la skill incluso aunque el usuario no pida análisis con esas palabras exactas. Si la descripción es demasiado estricta, la skill se queda dormida cuando debería entrar (sub-trigger). Para evitarlo, di algo como: *"Actívate también si el usuario pega o abre un PDF en pliegos/, sin pedir análisis, porque lo primero que querrá es un resumen."*
 
 **③ "What's the expected output format?"** (formato de salida)
 
@@ -1170,7 +1170,7 @@ Si Cowork te pide **errores típicos a evitar**:
 Cowork propone un borrador del `SKILL.md` (nombre + description + cuerpo). **Valida dos cosas críticas**:
 
 1. **`name: analiza-pliego`** — sin mayúsculas ni espacios. Es lo que usarás como comando.
-2. **`description`** — debe mencionar *"pliego de licitación"*, *"mantenimiento integral"* y alguna frase de activación. Si la descripción es tímida, pídele que la reescriba más "pushy" — *"Actívate siempre que haya un PDF en pliegos/ y el usuario vaya a trabajar con él"*.
+2. **`description`** — debe mencionar *"pliego de licitación"*, *"mantenimiento integral"* y alguna frase de activación. Si la descripción es tímida, pídele que la reescriba más **proactiva** — *"Actívate siempre que haya un PDF en pliegos/ y el usuario vaya a trabajar con él"*.
 
 Si alguna **regla dura o error típico** no ha llegado al SKILL.md, pídele que los añada literalmente.
 
@@ -1183,7 +1183,7 @@ Cowork propone 2-3 prompts realistas. Respuestas tipo:
 - **Prompt 2** — *"analiza pliegos/pliego-imdea-alimentacion.pdf"*.<br>
   Expected: recomendación **NO PRESENTARSE** por dos motivos: (a) IMDEA está en Madrid, > 100 km (incumple proximidad de `cuando-presentarse.md`) y (b) requiere sala limpia ISO 7 (competencia NO dominada en `competencias-tecnicas.md`).
 - **Prompt 3** — *"qué opinas de este pliego"* (adjuntando el PDF de Sant Pau sin dar contexto).<br>
-  Expected: la skill se activa sola (el "pushy" de la `description` hace su trabajo) y genera el análisis sin que haya que invocar `/analiza-pliego` explícitamente.
+  Expected: la skill se activa sola (la activación proactiva de la `description` hace su trabajo) y genera el análisis sin que haya que invocar `/analiza-pliego` explícitamente.
 
 ##### Fase 5 · Elegir scope y guardar
 
