@@ -275,7 +275,7 @@ El caso **diario crítico de Estudios**. Todos manejáis plantillas Excel de ofe
    - Respeta las fórmulas =D*F y =SUM() que ya están en el Excel —
      al rellenar F, los totales y subtotales se actualizan solos.
    - Al terminar, escribe en ofertas-presentadas/ un archivo
-     resumen-vallhebron.md con: importe total anual, nº de partidas
+     resumen-vallhebron.docx con: importe total anual, nº de partidas
      valoradas/sin-match/a-revisar, 5 partidas con margen más bajo
      y 5 con margen más alto, riesgos detectados.
 
@@ -436,7 +436,12 @@ Todo texto plano. Si no te gusta cómo funciona una Skill, abres el archivo y la
 
 > **Skill = QUÉ hacer · Programación = CUÁNDO hacerlo.** Compone naturalmente.
 
-Activación: comando `/schedule` en Cowork. Ejemplos para Estudios:
+Dos formas de crear una tarea programada:
+
+- **Rápida** — en cualquier chat de Cowork, escribís `/schedule` y un asistente os guía.
+- **UI estructurada** — en la barra lateral de Cowork hay una sección **Scheduled** donde podéis crear, editar, pausar y ver el histórico de ejecuciones de vuestras tareas.
+
+### Ejemplos para Estudios
 
 | Cadencia | Tarea |
 |----------|-------|
@@ -444,6 +449,55 @@ Activación: comando `/schedule` en Cowork. Ejemplos para Estudios:
 | Cada **viernes 17:00** | Balance de ofertas del equipo esta semana |
 | **Diariamente 12:00** | Correos urgentes en Outlook + borrador de respuesta |
 | **Mensualmente día 1** | Dashboard Excel con KPIs de Estudios |
+
+### Ejemplo completo de tarea programada (reproducir en casa)
+
+> **Este ejemplo usa Gmail** por simplicidad (sin carga corporativa). Para reproducirlo con vuestro **Outlook de Geinstal**, reemplazad *"Gmail"* por *"Outlook"* en el prompt — el resto funciona igual con el conector Outlook.
+
+**Paso 1 — Conectar el correo**: `Customize → Conectores → Gmail → Authenticate` (o `Outlook` si es lo vuestro).
+
+**Paso 2 — Crear la tarea programada** desde la sección `Scheduled` de la barra lateral → *New task*. Rellenad:
+
+- **Nombre**: `digest-newsletters-semanal`
+- **Descripción**: *Resume las newsletters de la semana en un Markdown*
+- **Prompt**:
+
+  ```
+  Busca en mi Gmail las newsletters recibidas en los últimos
+  7 días. Identifica tú mismo cuáles son newsletters (contenido
+  periódico de empresas o autores, no correos personales ni
+  transaccionales) — suelen venir de direcciones tipo
+  newsletter@, info@, noreply@, o de servicios tipo Substack.
+
+  Para cada una extrae: remitente, asunto, fecha y un resumen
+  de 1-2 frases del tema principal.
+
+  Genera un digest en
+  ~/Documentos/Newsletters-Digest/digest-newsletters-YYYY-WW.md
+  con:
+
+  1. Cabecera con el rango de fechas de la semana.
+  2. Top 3 temas que se repiten esta semana (análisis transversal).
+  3. Los 5 enlaces más interesantes (tema concreto, no enlaces
+     genéricos tipo "ver en navegador" o "desuscribirse").
+  4. Listado agrupado por autor con asunto + resumen de 1-2 frases.
+
+  Antes de hacer nada, muéstrame el plan.
+  ```
+
+- **Project**: déjalo vacío (es personal). Si queréis aislarlo, creadun Project `Newsletters` apuntando a `~/Documentos/Newsletters-Digest/`.
+- **Frecuencia**: **Semanal · Lunes · 09:00**.
+
+**Paso 3 — Ejecutar una vez para ver el resultado** sin esperar al lunes:
+
+```
+Ejecuta ahora la tarea digest-newsletters-semanal que acabo de
+programar para que veamos el resultado.
+```
+
+Cowork lanza el prompt, aparece el plan, aprobáis, y en un par de minutos tenéis el `.md` generado en la carpeta.
+
+> **Patrón reutilizable**: *conector + tarea programada + archivo de salida*. Cambiad *newsletters* por *correos con pliegos adjuntos de vuestro Comercial* y la misma estructura os genera un radar semanal automatizado.
 
 ---
 
