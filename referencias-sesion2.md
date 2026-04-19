@@ -1029,7 +1029,7 @@ Qué verificar al ejecutar la demo:
 
 ---
 
-## Caso 5 · ALTA — Crear una Skill personalizada de Geinstal · Slides 51-55
+## Caso 5 · ALTA — Crear una Skill personalizada de Geinstal · Slides 51-56
 
 ### La Skill: `/analiza-pliego`
 
@@ -1038,19 +1038,109 @@ Analiza un pliego de licitación. Devuelve un resumen ejecutivo, una tabla de cr
 ### Tres formas de invocarla
 
 ```
-/analiza-pliego pliegos/Hospital-Sant-Pau.pdf
+/analiza-pliego pliegos/pliego-hospital-sant-pau.pdf
    → análisis completo
 
-/analiza-pliego pliegos/UAB-Bellaterra.pdf --modo rapido
+/analiza-pliego pliegos/pliego-imdea-alimentacion.pdf --modo rapido
    → solo resumen, sin recomendación
 
-/analiza-pliego pliegos/SEAT-2026.pdf --comparar 2024-SEAT
+/analiza-pliego pliegos/pliego-seat-2026.pdf --comparar 2024-SEAT
    → vs. oferta anterior del cliente
 ```
 
-### El SKILL.md completo
+### Las 3 formas de crearla en Cowork
 
-Guardar como `~/skills/analiza-pliego/SKILL.md`:
+| Vía | Ruta | Cuándo usarla |
+|-----|------|---------------|
+| **`/skill-creator`** (hoy) | Customize → Skills → Directorio → `/skill-creator` → ⬇ Instalar | Para crear skills nuevas desde cero — te **obliga a pensar** cada decisión. |
+| **"Convertir en habilidad"** | Menú contextual del chat (⋮) → *Convertir en habilidad* | Cuando ya tienes **un chat exitoso** (p.ej. el del Caso 4) y quieres empaquetarlo como skill reutilizable. |
+| **A mano** | Editor + `~/.claude/skills/<nombre>/SKILL.md` | Cuando ya sabes exactamente qué reglas y formato quieres. |
+
+### La demo paso a paso (con `/skill-creator`)
+
+#### Paso 0 · Prerrequisito (lo hace el formador antes)
+
+`Customize → Skills → Directorio → Anthropic y partners → /skill-creator → ⬇ Instalar`. Instalación con 1 clic. Si el asistente aún no la tiene, se hace en directo en 10 segundos desde la UI.
+
+#### Paso 1 · Invocar `/skill-creator` dentro del Project
+
+Abrir Cowork, entrar al Project **Licitaciones-2026**, nuevo chat, y escribir:
+
+```
+/skill-creator
+```
+
+Cowork lee la skill oficial de Anthropic y empieza a entrevistarte.
+
+#### Paso 2 · Responder la entrevista (chuleta)
+
+Cowork te pregunta por los aspectos clave de la skill. Respuestas preparadas:
+
+| Pregunta | Respuesta |
+|----------|-----------|
+| **¿Qué debería hacer?** | *"Analizar pliegos de licitación de mantenimiento integral. Genera resumen ejecutivo, tabla de criterios y recomendación (PRESENTARSE / NO PRESENTARSE / CON SOCIO), cruzando con los archivos de `criterios-internos/` del Project."* |
+| **¿Cuándo debería activarse?** | *"Cuando entre un pliego nuevo en `pliegos/` del Project Licitaciones-2026 y el usuario pida análisis. Frases típicas: 'analiza este pliego', 'haz un análisis de pliego', o el invocador explícito `/analiza-pliego`."* |
+| **Reglas duras** | - Cada dato del resumen debe tener cita de página.<br>- Si no encuentras un dato → "NO ESPECIFICADO", no inventes.<br>- La recomendación es taxativa (una de tres), no "depende".<br>- Si margen estimado < margen mínimo → NO PRESENTARSE, sin importar lo demás. |
+| **Errores típicos** | - No copiar texto literal del pliego — síntesis.<br>- Nada de "tal vez podríamos" — sé taxativo.<br>- No olvidar la fecha límite — destacada arriba. |
+| **¿Ejemplo "bueno"?** | Si está el análisis del Caso 4 en `analisis/sant-pau-resumen.md`, pasárselo. Si no, omitir. |
+| **¿Formato de salida?** | *"Tres archivos en `analisis/[nombre-pliego]/`: `resumen.md`, `criterios.xlsx`, `recomendacion.md`."* |
+
+#### Paso 3 · Elegir el scope — guardar como Project
+
+Skill-creator pregunta dónde guardar la skill. Elige **Project** (`<project>/.claude/skills/analiza-pliego/`) para que el conocimiento quede pegado al Project Licitaciones-2026 y viaje con él si lo compartes.
+
+Cowork genera la estructura completa:
+
+```
+.claude/skills/analiza-pliego/
+├── SKILL.md                    ← archivo principal
+├── ejemplos/
+│   └── bueno.md                ← análisis del Sant Pau (si se pasó)
+└── plantilla.md                ← estructura del entregable
+```
+
+#### Paso 4 · Invocar la Skill con un pliego distinto
+
+Probar con un pliego que **no** hayas usado en el Caso 4:
+
+```
+/analiza-pliego pliegos/pliego-imdea-alimentacion.pdf
+```
+
+**Resultado esperado**: la skill debe recomendar **NO PRESENTARSE** citando al menos:
+
+- **Distancia** — IMDEA Alimentación está en Madrid, > 100 km de Sant Cugat (incumple regla de proximidad de `cuando-presentarse.md`).
+- **Sala limpia ISO 7** — competencia no dominada según `competencias-tecnicas.md`.
+
+Si aplica esas dos reglas correctamente, la **"regla del director"** está encapsulada.
+
+#### Paso 5 · Promover a Usuario (scope global)
+
+En terminal, mostrar cómo copiar la skill a nivel usuario para usarla en cualquier Project:
+
+```bash
+cp -R demos/14-licitaciones-2026/.claude/skills/analiza-pliego \
+      ~/.claude/skills/
+```
+
+A partir de aquí `/analiza-pliego` funciona desde **cualquier Project**, no solo Licitaciones-2026.
+
+#### Paso 6 · Mencionar "Convertir en habilidad" como atajo
+
+Volver al chat del Caso 4 (el análisis del Hospital Sant Pau). En el menú contextual (⋮ junto al título del chat) está la opción **"Convertir en habilidad"**. Mostrarla, no ejecutarla. *"Para la próxima vez que tengáis un chat que os encante, éste es el atajo — Cowork captura todo el flujo y lo empaqueta como skill."*
+
+### Project vs Usuario
+
+| Scope | Path | Alcance | Versionable | Ideal para |
+|-------|------|---------|-------------|------------|
+| **Project** | `<project>/.claude/skills/analiza-pliego/` | Solo en este Project | Sí (con git) | Criterio específico del departamento que viaja con el Project |
+| **Usuario** | `~/.claude/skills/analiza-pliego/` | Todos tus Projects | No (local) | Skills personales que quieres tener siempre disponibles |
+
+**Promoción Project → Usuario**: `cp -R` de la carpeta. No hay automatización oficial. **No hay promoción Usuario → Project** porque perderías el scope global; si quieres que una skill tuya la use todo el equipo, súbela al Project.
+
+### El SKILL.md resultante
+
+Esto es lo que `/skill-creator` genera al final (contenido equivalente; la redacción exacta puede variar):
 
 ```markdown
 ---
@@ -1058,7 +1148,7 @@ name: analiza-pliego
 description: Analiza un pliego de licitación de
   mantenimiento integral. Devuelve resumen ejecutivo,
   tabla de criterios y recomendación. Úsalo cuando
-  entre un pliego nuevo en /pliegos/.
+  entre un pliego nuevo en pliegos/.
 ---
 
 ## QUÉ HACE
@@ -1070,10 +1160,10 @@ resumen.md, criterios.xlsx, recomendacion.md.
 ## CÓMO LO HACE
 
 1. Lee el pliego de principio a fin.
-2. Consulta /criterios-internos/ para conocer las
+2. Consulta criterios-internos/ para conocer las
    reglas de Geinstal sobre cuándo presentarse.
-3. Consulta /ofertas-presentadas/ por si hay similar.
-4. Genera los tres archivos en /analisis/[nombre]/.
+3. Consulta ofertas-presentadas/ por si hay similar.
+4. Genera los tres archivos en analisis/[nombre]/.
 
 ## REGLAS DURAS
 
@@ -1091,14 +1181,14 @@ resumen.md, criterios.xlsx, recomendacion.md.
 
 ## FORMATO DE SALIDA
 
-Ver /skills/analiza-pliego/plantilla.md
+Ver plantilla.md
 ```
 
 ### Las 4 zonas críticas del SKILL.md
 
 - **`description`** → el **disparador**. Claude lo lee para decidir activar la Skill.
-- **Reglas duras** → lo más importante. Evita que la IA se vaya por las ramas.
-- **La regla del director** → *"Si margen < mínimo → NO"*. Encapsula una regla que solo estaba en su cabeza.
+- **Reglas duras** → lo más importante. **Evita que la IA se vaya por las ramas.**
+- **La regla del director** → *"Si margen < mínimo → NO"*. Encapsula una regla que solo estaba en la cabeza del director de Estudios.
 - **Errores típicos** → lo aprendes iterando. Cuando algo sale mal, lo añades aquí.
 
 ---
