@@ -103,6 +103,56 @@ La demo de *"primera tarea"* que habéis visto en directo la podéis replicar vo
 
 ---
 
+## El ciclo completo — de carpeta caótica a presentación ejecutiva (reproducir en casa)
+
+Reproduce la demo del **walkthrough oficial** de Anthropic, aterrizada a un caso de Geinstal: partir de una carpeta con documentos sueltos de una revisión de herramientas del departamento de Estudios, y pedirle a Cowork una presentación ejecutiva para dirección.
+
+### Carpeta a usar
+
+`demos/slide-12-tooling-review/` — contiene:
+
+| Archivo | Qué es |
+|---------|--------|
+| `notas-reunion-1-diagnostico.docx` | Notas de la reunión inicial de diagnóstico (qué herramientas usamos, qué falla) |
+| `notas-reunion-2-priorizacion.docx` | Taller de priorización con dot-voting del equipo |
+| `notas-reunion-3-it-integraciones.docx` | Reunión con IT sobre viabilidad técnica y seguridad |
+| `timeline-proyecto.xlsx` | Cronograma de implantación + hoja de KPIs con gráfico |
+| `analisis-previo-herramientas.pdf` | Benchmarking resumido de alternativas (Claude Team, ChatGPT, Copilot…) |
+| `equipo-estudios.jpg` | Foto del equipo para la portada de la presentación |
+
+### Cómo reproducirla
+
+1. **Autoriza** en Cowork la carpeta `demos/slide-12-tooling-review/`.
+
+2. **Lanza este prompt**:
+
+   ```
+   Revisa todo lo que hay en esta carpeta y crea una presentación
+   de 8-10 slides para la dirección sobre la revisión de herramientas
+   del departamento de Estudios. Incluye:
+     - Portada con la foto del equipo
+     - Resumen ejecutivo
+     - Estado actual (qué tenemos hoy y qué falla)
+     - Propuesta priorizada con el resultado del taller
+     - Cronograma del piloto
+     - KPIs objetivo (con gráfico editable)
+     - Próximos pasos y decisión pedida a dirección
+   Guárdala como tooling-review-direccion.pptx.
+   ```
+
+3. **Revisa el plan** (4 pasos: leer docs → sintetizar → construir outline → generar slides) y aprueba.
+
+4. **Abre el .pptx resultante**. Comprueba:
+   - Los **gráficos son editables** (clic en el gráfico → se abren los datos nativos de PowerPoint, no es una imagen).
+   - Los **datos del cronograma** provienen del Excel original.
+   - La **portada** incluye la foto del equipo.
+
+5. **Itera si hace falta**: *"cambia el título de la slide 3"*, *"añade una slide de riesgos entre estado actual y propuesta"*. Cowork edita el mismo archivo.
+
+> Este es el ejercicio más completo de la sesión: toca **leer varios tipos de archivo**, **sintetizar en varios pasos**, **generar un archivo Office nativo**, e **iterar sobre el resultado**. El ciclo de la tarea en su forma más rica.
+
+---
+
 ## El ciclo de la tarea (4 pasos oficiales)
 
 1. **Describe qué quieres recibir** — qué mirar, qué devolver, dónde guardarlo.
