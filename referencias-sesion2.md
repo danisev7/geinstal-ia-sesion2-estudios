@@ -851,10 +851,10 @@ Qué verificar al ejecutar la demo:
 ### Prompt
 
 ```
-En la carpeta /valoraciones-Q1/ tienes 4 Excels:
+En la carpeta valoraciones-Q1/ tienes 4 Excels:
 uno por cliente, cada uno con su plantilla.
 
-Quiero un Excel consolidado /valoraciones-Q1-RESUMEN.xlsx
+Quiero un Excel consolidado valoraciones-Q1-RESUMEN.xlsx
 con UNA hoja por cliente y UNA hoja "Comparativa" que tenga:
 
 – Cliente
@@ -877,6 +877,26 @@ columnas de cada plantilla a los campos del consolidado.
 - **Salida**: 5 hojas (1 por cliente + Comparativa) con 5 campos definidos.
 - 🛡️ **No invenciones**: campo no encontrado → vacío + comentario en celda.
 - 🔍 **Mapeo visible**: antes de generar nada, ver cómo entendió las columnas de cada plantilla.
+
+### Cómo reproducirla en casa
+
+Los 4 Excels de input están en `demos/41-consolidar-valoraciones/valoraciones-Q1/`. Cada uno con estructura deliberadamente distinta para que Cowork tenga que mapear:
+
+| Archivo | Cliente | Peculiaridad pedagógica |
+|---|---|---|
+| `valoracion-vall-hebron-2026Q1.xlsx` | Hospital Vall d'Hebron | Plantilla completa — 20 partidas con precio, coste interno, margen € y margen %. El "caso base" que cuadra con todos los campos del consolidado. |
+| `valoracion-SEAT-martorell-Q1.xlsx` | SEAT Martorell | Plantilla industrial **en inglés** (`Item #`, `Description`, `Qty`, `Unit Price`, `Total`) — **sin columna de margen**. Cowork debe dejar "Margen €/%" vacío y avisar. |
+| `UAB-valoracio-Q1-2026.xlsx` | UAB Bellaterra | Cabeceras en **catalán** (`Concepte`, `Preu €/ut`, `Cost intern`, `Marge`). Mismos conceptos, vocabulario distinto. |
+| `CCCB-2026Q1.xlsx` | CCCB | Plantilla pobre — 3 columnas (`Descripción`, `Total €`, `Beneficio esperado %`). Agrupa bloques, no desglosa por unidades. |
+
+El output `valoraciones-Q1-RESUMEN.xlsx` se guarda al mismo nivel que `valoraciones-Q1/` (lo genera Cowork — está en `.gitignore`).
+
+Qué verificar al ejecutar la demo:
+
+- **Plan de mapeo antes de generar nada**: Cowork debe decir cómo traduce cada cabecera (`Preu €/ut` → `Precio unitario`, `Item #` → `Código partida`, etc.).
+- **SEAT sin margen**: en la hoja "Comparativa" y en la hoja dedicada a SEAT, las celdas de margen deben quedar vacías con un comentario tipo *"No hay coste interno en la plantilla original — pedir a Comercial"*. Si Cowork se inventa un margen, ahí tienes el fallo.
+- **CCCB**: el "beneficio esperado %" de CCCB ≠ "margen %" exactamente, pero Cowork puede asimilarlo. Debe marcarlo como *aproximación*, no como dato directo.
+- **Tabla comparativa**: los conteos de partidas con margen < 5% (rojo) y > 20% (verde) deben cuadrar con lo que hay en los archivos individuales.
 
 ---
 

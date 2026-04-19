@@ -28,3 +28,7 @@ demos/14-licitaciones-2026/ofertas-presentadas/*
 # El informe-gastos.xlsx lo genera Cowork al ejecutar el prompt.
 demos/25-informe-gastos/informe/*
 !demos/25-informe-gastos/informe/LEEME.md
+
+# Demo 41 — el consolidado valoraciones-Q1-RESUMEN.xlsx lo genera Cowork
+# al ejecutar el prompt. Los 4 inputs en valoraciones-Q1/ sí se versionan.
+demos/41-consolidar-valoraciones/valoraciones-Q1-RESUMEN.xlsx
