@@ -972,28 +972,28 @@ Qué verificar al ejecutar la demo:
 
 ## Caso 4 · MEDIA-ALTA — Análisis completo de pliego dentro de un Project · Slides 47-50
 
-> Este caso usa el Project **Licitaciones-2026** ya montado, con sus instrucciones cargadas y carpetas `/criterios-internos/`, `/ofertas-presentadas/` y `/pliegos/`.
+> Este caso usa el Project **Licitaciones-2026** ya montado, con sus instrucciones cargadas y carpetas `criterios-internos/`, `ofertas-presentadas/` y `pliegos/`.
 
 ### Prompt
 
 ```
-He metido en /pliegos/ un pliego nuevo:
-Hospital-Sant-Pau-2026.pdf
+He metido en pliegos/ un pliego nuevo:
+pliego-hospital-sant-pau.pdf
 
 Hazme un análisis completo:
 
-1. RESUMEN EJECUTIVO en /analisis/Sant-Pau-resumen.md (1 pág):
+1. RESUMEN EJECUTIVO en analisis/sant-pau-resumen.md (1 pág):
    – Objeto del contrato y duración
    – Importe base de licitación
    – Tipo de contrato (servicios, obra, mixto)
    – Plazo de presentación
    – Criterios de adjudicación con ponderación
 
-2. TABLA DE CRITERIOS en /analisis/Sant-Pau-criterios.xlsx:
+2. TABLA DE CRITERIOS en analisis/sant-pau-criterios.xlsx:
    – Criterio | Peso | Cómo se valora | Encaje Geinstal (1-5)
 
 3. RECOMENDACIÓN al final del resumen:
-   – Cruza el pliego con /criterios-internos/
+   – Cruza el pliego con criterios-internos/
    – Decide: PRESENTARSE / NO PRESENTARSE / CON SOCIO
    – Justifica con datos del pliego y de los criterios
 
@@ -1003,9 +1003,29 @@ Cita siempre la página del pliego de la que sacas cada dato.
 ### Anotaciones
 
 - **3 outputs**: tres archivos concretos en rutas concretas. Sin ambigüedad.
-- **Cruza con contexto**: *"cruza con /criterios-internos/"* — usa el contexto del Project, no opina de la nada.
+- **Cruza con contexto**: *"cruza con criterios-internos/"* — usa el contexto del Project, no opina de la nada.
 - **Decisión, no palabrería**: una de tres opciones. Nada de "depende".
 - **Cita la página**: lo que separa una IA útil de una peligrosa: cada dato verificable.
+
+### Cómo reproducirla en casa
+
+El Project ya está montado en `demos/14-licitaciones-2026/` con todo lo necesario. El pliego de prueba **ya existe** en `pliegos/pliego-hospital-sant-pau.pdf` — no hay que descargar nada extra.
+
+Pasos:
+
+1. **Abre el Project `Licitaciones-2026`** en Cowork (el panel de instrucciones ya está cargado).
+2. **Verifica que `pliegos/pliego-hospital-sant-pau.pdf` existe**. La carpeta `analisis/` también está lista y vacía (sólo contiene `LEEME.md`).
+3. **Abre un chat nuevo dentro del Project** y pega el prompt.
+4. **Output esperado**: 2 archivos en `analisis/`:
+   - `sant-pau-resumen.md` (resumen ejecutivo + recomendación al final)
+   - `sant-pau-criterios.xlsx` (tabla con los criterios del pliego ponderados contra el encaje Geinstal)
+
+Qué verificar al ejecutar la demo:
+
+- **Citas a páginas concretas**: cada dato del resumen debe llevar "(p. N)". Si Cowork se inventa la página, se nota leyendo el PDF.
+- **Coherencia con `criterios-internos/`**: la recomendación debe apoyarse en `cuando-presentarse.md`, `margenes-minimos.md` y `capacidad-actual.md`. Si el pliego tiene **gases medicinales con peso > 10%**, la recomendación correcta es **NO PRESENTARSE** o **CON SOCIO**, según los criterios ya cargados.
+- **Encaje Geinstal 1-5**: en la tabla Excel, los criterios donde Geinstal tiene competencia demostrada (HVAC, PCI, ELE) deben puntuar alto; los no dominados (gases medicinales, sala limpia ISO 7) deben bajar.
+- **Output en `analisis/`, no en raíz**: si Cowork deja los archivos en la raíz del Project, es que no leyó bien el prompt.
 
 ---
 
