@@ -801,7 +801,7 @@ Los 5 prompts ejecutados en directo durante la sesión, listos para copiar y ada
 
 ---
 
-## Caso 1 · BAJA — Organizar carpeta de licitaciones nuevas · Slides 37-40
+## Caso 1 · BAJA — Organizar carpeta de licitaciones nuevas · Slides 37-39
 
 ### Prompt
 
@@ -846,7 +846,7 @@ Qué verificar al ejecutar la demo:
 
 ---
 
-## Caso 2 · MEDIA — Consolidar valoraciones de varios clientes · Slides 41-44
+## Caso 2 · MEDIA — Consolidar valoraciones de varios clientes · Slides 40-42
 
 ### Prompt
 
@@ -880,7 +880,7 @@ columnas de cada plantilla a los campos del consolidado.
 
 ---
 
-## Caso 3 · MEDIA — Claude en Chrome para portales web sin conector · Slides 45-49
+## Caso 3 · MEDIA — Claude en Chrome para portales web sin conector · Slides 43-46
 
 > **Pre-requisito**: tener instalada la extensión [claude.ai/chrome](https://claude.ai/chrome). Está en beta y disponible en los planes Pro, Max, Team y Enterprise (desde diciembre 2025).
 
@@ -932,7 +932,7 @@ si pide login, para y avísame.
 
 ---
 
-## Caso 4 · MEDIA-ALTA — Análisis completo de pliego dentro de un Project · Slides 50-54
+## Caso 4 · MEDIA-ALTA — Análisis completo de pliego dentro de un Project · Slides 47-50
 
 > Este caso usa el Project **Licitaciones-2026** ya montado, con sus instrucciones cargadas y carpetas `/criterios-internos/`, `/ofertas-presentadas/` y `/pliegos/`.
 
@@ -971,7 +971,7 @@ Cita siempre la página del pliego de la que sacas cada dato.
 
 ---
 
-## Caso 5 · ALTA — Crear una Skill personalizada de Geinstal · Slides 55-60
+## Caso 5 · ALTA — Crear una Skill personalizada de Geinstal · Slides 51-55
 
 ### La Skill: `/analiza-pliego`
 
@@ -1045,7 +1045,7 @@ Ver /skills/analiza-pliego/plantilla.md
 
 ---
 
-## Deberes para la Sesión 3 · Slide 62
+## Deberes para la Sesión 3 · Slide 57
 
 | Nivel | Tarea | Tiempo |
 |-------|-------|--------|
