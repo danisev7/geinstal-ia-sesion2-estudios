@@ -1218,12 +1218,14 @@ Si aplica esas dos reglas correctamente, la **"regla del director"** está encap
 
 #### Paso 5 · Promover a Usuario (scope global)
 
-En terminal, mostrar cómo copiar la skill a nivel usuario para usarla en cualquier Project:
+Desde **Finder** (macOS) o el **Explorador de archivos** (Windows), copia la carpeta de la skill a tu carpeta personal de Claude:
 
-```bash
-cp -R demos/14-licitaciones-2026/.claude/skills/analiza-pliego \
-      ~/.claude/skills/
-```
+1. **Abre la carpeta del Project** en Finder — navega hasta `demos/14-licitaciones-2026/.claude/skills/` y verás la carpeta `analiza-pliego/` que acaba de generar `/skill-creator`.
+2. **Copia la carpeta `analiza-pliego/`** entera (Cmd+C / Ctrl+C) — con todo su contenido (`SKILL.md`, `evals/`, `ejemplos/`, `plantilla.md`).
+3. **Abre una segunda ventana de Finder** en tu carpeta de usuario. En macOS: `Cmd+Shift+G` → escribe `~/.claude/skills/` → Enter. En Windows: pega `%USERPROFILE%\.claude\skills\` en la barra del Explorador.
+4. **Pega** la carpeta (Cmd+V / Ctrl+V) dentro de `.claude/skills/`.
+
+> ℹ️ **Si no ves la carpeta `.claude`**: está oculta por defecto. En macOS: `Cmd+Shift+.` para mostrar archivos ocultos. En Windows: pestaña *Vista* → marcar *Elementos ocultos*.
 
 A partir de aquí `/analiza-pliego` funciona desde **cualquier Project**, no solo Licitaciones-2026.
 
