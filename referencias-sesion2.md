@@ -481,9 +481,9 @@ Dos formas de crear una tarea programada:
   3. Los 5 enlaces más interesantes (tema concreto, no enlaces
      genéricos tipo "ver en navegador" o "desuscribirse").
   4. Listado agrupado por autor con asunto + resumen de 1-2 frases.
-
-  Antes de hacer nada, muéstrame el plan.
   ```
+
+  > ⚠ **Importante**: en los prompts de tareas programadas **no añadáis** la coletilla *"muéstrame el plan antes de hacer nada"* que sí usamos en los prompts interactivos. Si la dejáis, Cowork mostrará el plan cuando se dispare la tarea y **se quedará esperando aprobación humana** — que nadie dará si estáis fuera o dormidos, y la tarea no se ejecutará. Las tareas programadas tienen que ser **autónomas**.
 
 - **Project**: déjalo vacío (es personal). Si queréis aislarlo, cread un Project `Newsletters` apuntando a `~/Documentos/Newsletters-Resumen/`.
 - **Frecuencia**: **Semanal · Lunes · 09:00**.
