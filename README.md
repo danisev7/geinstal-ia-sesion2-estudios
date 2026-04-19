@@ -8,6 +8,7 @@ Material de soporte para la Sesión 2 de la formación de inteligencia artificia
 - [Referencias y prompts](referencias-sesion2.md) — Enlaces oficiales de Anthropic, conceptos clave, los 5 prompts de los casos prácticos y el SKILL.md de `/analiza-pliego`.
 - [Demos](demos/) — Material para reproducir las demos en directo.
   - [`chrome-prompt-injection/`](demos/chrome-prompt-injection/) — Página HTML con 3 inyecciones ocultas para demostrar el riesgo de *prompt injection* en Claude para Chrome.
+    - **Página renderizada (demo en vivo)**: https://danisev7.github.io/geinstal-ia-sesion2-estudios/demos/chrome-prompt-injection/
 
 ## Próxima sesión
 
