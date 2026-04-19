@@ -828,6 +828,22 @@ Antes de mover nada, muéstrame el plan completo.
 - **Transformación**: 5 pasos numerados — clasifica, identifica, crea, mueve, indexa.
 - 🛡️ **Red de seguridad**: *"Antes de mover nada, plan completo."* Nada se ejecuta sin tu OK.
 
+### Cómo reproducirla en casa
+
+Carpeta con 13 archivos de input preparados en `demos/38-organizar-carpeta/licitaciones-entrantes/`. Cuatro clientes distintos mezclados + tres archivos "ruido" que no son licitaciones:
+
+- **Hospital Universitari Vall d'Hebron** (abril 2026) — `pliego_v2_FINAL.pdf`, `anexo tecnico vh.pdf`, `ANEXO 3 firmado.pdf`, `Memoria_Hospital_v3.docx`.
+- **SEAT Martorell** (abril 2026) — `pliego.pdf`, `Anexo_SEAT (1).pdf`.
+- **Ajuntament de Girona** (marzo 2026, catalán) — `pliego-girona-borrador.pdf`, `anexo admin girona 23abr.pdf`.
+- **Universitat Pompeu Fabra** (abril 2026) — `upf-bib.pdf`, `memoria_upf.docx`.
+- **Sin clasificar** (esperables en `/sin-clasificar/`) — `sin titulo.pdf` (notificación de cambio de reunión), `DOC0042.pdf` (factura de proveedor), `notif.pdf` (acta interna).
+
+Qué verificar al ejecutar la demo:
+
+- El plan agrupa correctamente los 4 clientes y detecta que la memoria de UPF y la de Vall d'Hebron son **memorias base**, no pliegos.
+- Los tres archivos ruido van a `/sin-clasificar/` — si los clasifica como anexo es señal de que hay que darle un ejemplo negativo.
+- El `index.md` final debería mencionar el expediente y la fecha de cada pliego.
+
 ---
 
 ## Caso 2 · MEDIA — Consolidar valoraciones de varios clientes · Slides 41-44
