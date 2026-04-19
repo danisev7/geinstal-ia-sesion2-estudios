@@ -1297,21 +1297,20 @@ Ver plantilla.md
 
 ---
 
-## Deberes para la Sesión 3 · Slide 57
-
-| Nivel | Tarea | Tiempo |
-|-------|-------|--------|
-| ☐ **Mínimo** | Instalar Cowork y darle permisos a una carpeta de prueba | 15 min |
-| ☐ **Recomendado** | Repetir el **Caso 1** con vuestra propia carpeta de Descargas | 30 min |
-| ☐ **Ambicioso** | Crear vuestro propio Project *"Mi-Trabajo-2026"* con sus instrucciones y archivos de contexto | 1 h |
-| ★ **Bonus** | Identificar **1 tarea que repetís cada semana** y pensar cómo sería la Skill — la diseñamos juntos en Sesión 3 | — |
-
-> **El bonus es lo que más impacto tiene.** Llevadlo pensado a la Sesión 3 (28 abril) para diseñar la Skill juntos.
-
----
-
 ## Soporte después de la sesión
 
 Si os quedáis bloqueados con cualquier cosa, escribidme y lo vemos. La curva de aprendizaje es real las primeras dos semanas — después se nota muchísimo.
 
-**Próxima sesión** — Nivel 3A · *Los agentes de IA trabajan por ti* (Estudios) · **28 abril 2026**.
+### Descargar los materiales de la sesión
+
+Todo el material vive en GitHub, repo público. Os podéis bajar lo que queráis sin cuenta.
+
+| Qué | Dónde |
+|---|---|
+| **Repositorio completo** | [github.com/danisev7/geinstal-ia-sesion2-estudios](https://github.com/danisev7/geinstal-ia-sesion2-estudios) |
+| **Carpeta `demos/`** (inputs de las 10 demos reproducibles) | [demos/ en el repo](https://github.com/danisev7/geinstal-ia-sesion2-estudios/tree/main/demos) |
+| **`referencias-sesion2.md`** (este mismo documento, siempre actualizado) | [referencias-sesion2.md](https://github.com/danisev7/geinstal-ia-sesion2-estudios/blob/main/referencias-sesion2.md) |
+| **PDF de las slides** | [sesion-2-automatizo-con-ia-estudios.pdf](https://github.com/danisev7/geinstal-ia-sesion2-estudios/blob/main/sesion-2-automatizo-con-ia-estudios.pdf) |
+
+**Descargar todo el repo de una vez**: botón verde `Code` → `Download ZIP`. Descomprimís y tenéis la carpeta `demos/` entera lista para apuntar Cowork a ella.
+
