@@ -1072,30 +1072,132 @@ Abrir Cowork, entrar al Project **Licitaciones-2026**, nuevo chat, y escribir:
 
 Cowork lee la skill oficial de Anthropic y empieza a entrevistarte.
 
-#### Paso 2 · Responder la entrevista (chuleta)
+#### Paso 2 · Responder la entrevista (chuleta conversacional)
 
-Cowork te pregunta por los aspectos clave de la skill. Respuestas preparadas:
+`/skill-creator` tiene **5 fases** según su SKILL.md oficial. Cowork te va llevando por ellas en orden. No hace falta que hagas nada entre fases — solo contesta cuando pregunta. Debajo, el guion literal copiable por si quieres ir al grano.
 
-| Pregunta | Respuesta |
-|----------|-----------|
-| **¿Qué debería hacer?** | *"Analizar pliegos de licitación de mantenimiento integral. Genera resumen ejecutivo, tabla de criterios y recomendación (PRESENTARSE / NO PRESENTARSE / CON SOCIO), cruzando con los archivos de `criterios-internos/` del Project."* |
-| **¿Cuándo debería activarse?** | *"Cuando entre un pliego nuevo en `pliegos/` del Project Licitaciones-2026 y el usuario pida análisis. Frases típicas: 'analiza este pliego', 'haz un análisis de pliego', o el invocador explícito `/analiza-pliego`."* |
-| **Reglas duras** | - Cada dato del resumen debe tener cita de página.<br>- Si no encuentras un dato → "NO ESPECIFICADO", no inventes.<br>- La recomendación es taxativa (una de tres), no "depende".<br>- Si margen estimado < margen mínimo → NO PRESENTARSE, sin importar lo demás. |
-| **Errores típicos** | - No copiar texto literal del pliego — síntesis.<br>- Nada de "tal vez podríamos" — sé taxativo.<br>- No olvidar la fecha límite — destacada arriba. |
-| **¿Ejemplo "bueno"?** | Si está el análisis del Caso 4 en `analisis/sant-pau-resumen.md`, pasárselo. Si no, omitir. |
-| **¿Formato de salida?** | *"Tres archivos en `analisis/[nombre-pliego]/`: `resumen.md`, `criterios.xlsx`, `recomendacion.md`."* |
+##### Fase 1 · Captura de intención (4 preguntas base)
 
-#### Paso 3 · Elegir el scope — guardar como Project
+Cowork abre la entrevista con 4 preguntas consecutivas. Las respuestas:
 
-Skill-creator pregunta dónde guardar la skill. Elige **Project** (`<project>/.claude/skills/analiza-pliego/`) para que el conocimiento quede pegado al Project Licitaciones-2026 y viaje con él si lo compartes.
+**① "What should this skill enable Claude to do?"** (qué debe hacer)
+
+> ```
+> Analizar un pliego de licitación de mantenimiento integral,
+> cruzarlo con los criterios internos del departamento de Estudios
+> de Geinstal (carpeta criterios-internos/) y devolver:
+>
+> 1. Un resumen ejecutivo de una página (objeto, duración, importe,
+>    plazo, criterios de adjudicación con ponderación).
+> 2. Una tabla de criterios (Excel) con peso, cómo se valora y
+>    encaje Geinstal (1-5).
+> 3. Una recomendación taxativa: PRESENTARSE, NO PRESENTARSE, o
+>    CON SOCIO, justificada con datos del pliego y de los criterios.
+>
+> Cada dato debe llevar la página del pliego de donde se saca.
+> ```
+
+**② "When should this skill trigger?"** (cuándo activarse, qué frases)
+
+> ```
+> Cuando el usuario esté trabajando dentro del Project
+> Licitaciones-2026 y haya un pliego PDF en pliegos/, y pida:
+>
+> - "analiza este pliego"
+> - "haz un análisis de pliego"
+> - "qué opinas de este pliego"
+> - "vale la pena presentarse a X"
+>
+> O cuando el usuario invoque directamente /analiza-pliego
+> con un path a un PDF.
+> ```
+
+> ℹ️ **Ojo con el "pushy"**: el SKILL.md oficial recomienda que la descripción de activación sea **un poco insistente** — incluir contextos donde la skill debería usarse aunque el usuario no lo pida explícitamente. Para evitar el sub-trigger (que no se active cuando debería), di algo como: *"Actívate también si el usuario pega o abre un PDF en pliegos/, sin pedir análisis, porque lo primero que querrá es un resumen."*
+
+**③ "What's the expected output format?"** (formato de salida)
+
+> ```
+> Tres archivos en analisis/[nombre-pliego]/:
+>
+> - resumen.md   → texto, 1 página, con citas (p. N) en cada dato.
+> - criterios.xlsx → tabla con columnas
+>   Criterio | Peso | Cómo se valora | Encaje Geinstal (1-5).
+> - recomendacion.md → PRESENTARSE / NO PRESENTARSE / CON SOCIO,
+>   con 3-5 líneas de justificación y referencia al archivo de
+>   criterios-internos/ que la respalda.
+> ```
+
+**④ "Should we set up test cases?"** (¿quieres casos de prueba?)
+
+> **Sí.** Un pliego produce un output objetivamente verificable (recomendación taxativa + citas de página), así que los evals tienen sentido.
+
+##### Fase 2 · Entrevista de investigación
+
+Cowork profundiza sobre casos límite, formatos, dependencias. Suele preguntar:
+
+- *"¿Hay un archivo-ejemplo del pliego que puedas mostrarme?"* → Pásale `pliegos/pliego-hospital-sant-pau.pdf`.
+- *"¿Hay una carpeta o archivo con las reglas de negocio del departamento?"* → `criterios-internos/` entera; especialmente `cuando-presentarse.md`, `margenes-minimos.md` y `competencias-tecnicas.md`.
+- *"¿Qué pasa si el pliego es muy largo o en otro idioma (catalán)?"* → Responde que debe leerlo igual; el catalán forma parte del trabajo normal.
+- *"¿Qué dato es el más crítico que nunca debe faltar?"* → La **fecha límite de presentación** y el **importe base de licitación**.
+- *"¿Hay una plantilla de entregable?"* → Si no tienes ninguna, dile que genere una `plantilla.md` con la estructura de `resumen.md` y que la use siempre.
+
+Si Cowork te pide **reglas duras**, dale estas:
+
+> ```
+> - Cada dato del resumen tiene que llevar cita (p. N).
+> - Dato no encontrado = "NO ESPECIFICADO". Nunca inventar.
+> - La recomendación es UNA de tres. Nada de "depende".
+> - Si el margen estimado < margen mínimo de
+>   criterios-internos/margenes-minimos.md → NO PRESENTARSE,
+>   aunque el resto de criterios sea favorable.
+> - Si el pliego tiene peso > 10% en una competencia marcada como
+>   "NO DOMINADA" en competencias-tecnicas.md → NO PRESENTARSE
+>   o CON SOCIO, no PRESENTARSE en solitario.
+> ```
+
+Si Cowork te pide **errores típicos a evitar**:
+
+> ```
+> - No copiar texto literal del pliego — sintetiza con tus palabras.
+> - Nada de "tal vez podríamos", "sería posible" — sé taxativo.
+> - No olvidar la fecha límite — destacada arriba del resumen.
+> - Si no hay margen estimado en el pliego, calcularlo cruzando
+>   con plantillas/costes-internos-2026.xlsx. No dejarlo en blanco.
+> ```
+
+##### Fase 3 · Escritura del SKILL.md
+
+Cowork propone un borrador del `SKILL.md` (nombre + description + cuerpo). **Valida dos cosas críticas**:
+
+1. **`name: analiza-pliego`** — sin mayúsculas ni espacios. Es lo que usarás como comando.
+2. **`description`** — debe mencionar *"pliego de licitación"*, *"mantenimiento integral"* y alguna frase de activación. Si la descripción es tímida, pídele que la reescriba más "pushy" — *"Actívate siempre que haya un PDF en pliegos/ y el usuario vaya a trabajar con él"*.
+
+Si alguna **regla dura o error típico** no ha llegado al SKILL.md, pídele que los añada literalmente.
+
+##### Fase 4 · Casos de prueba (evals)
+
+Cowork propone 2-3 prompts realistas. Respuestas tipo:
+
+- **Prompt 1** — *"analiza pliegos/pliego-hospital-sant-pau.pdf"*.<br>
+  Expected: recomendación PRESENTARSE porque es hospital estándar en Cataluña, sin gases medicinales con peso alto. Fecha límite visible en la primera línea del resumen.
+- **Prompt 2** — *"analiza pliegos/pliego-imdea-alimentacion.pdf"*.<br>
+  Expected: recomendación **NO PRESENTARSE** por dos motivos: (a) IMDEA está en Madrid, > 100 km (incumple proximidad de `cuando-presentarse.md`) y (b) requiere sala limpia ISO 7 (competencia NO dominada en `competencias-tecnicas.md`).
+- **Prompt 3** — *"qué opinas de este pliego"* (adjuntando el PDF de Sant Pau sin dar contexto).<br>
+  Expected: la skill se activa sola (el "pushy" de la `description` hace su trabajo) y genera el análisis sin que haya que invocar `/analiza-pliego` explícitamente.
+
+##### Fase 5 · Elegir scope y guardar
+
+Cowork finalmente pregunta dónde colocar la carpeta de la skill. **Elige `Project`** (`<project>/.claude/skills/analiza-pliego/`). Justificación para la clase: *"Así el criterio del departamento de Estudios viaja con el Project Licitaciones-2026. Si compartimos el repositorio del Project con el equipo, la skill va incluida."*
 
 Cowork genera la estructura completa:
 
 ```
 .claude/skills/analiza-pliego/
 ├── SKILL.md                    ← archivo principal
+├── evals/
+│   └── evals.json              ← los 3 prompts con expected_output
 ├── ejemplos/
-│   └── bueno.md                ← análisis del Sant Pau (si se pasó)
+│   └── bueno.md                ← análisis del Sant Pau (si lo pasaste)
 └── plantilla.md                ← estructura del entregable
 ```
 
