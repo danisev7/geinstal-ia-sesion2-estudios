@@ -4,6 +4,22 @@ Material complementario para los asistentes. Aquí encontraréis los enlaces, co
 
 ---
 
+## Antes de empezar — descargad la carpeta `demos/`
+
+Todas las demos que reproduciréis en casa usan archivos preparados que están en la carpeta [`demos/`](demos/) de este repositorio. Para seguir las prácticas **sin perder tiempo creando ficheros**, descargad toda la carpeta `demos/` a vuestro ordenador antes de la sesión.
+
+Dentro, cada subcarpeta corresponde a una demo concreta (por ejemplo `demos/slide-09-primera-tarea/`). A lo largo de este documento os indicaré **qué subcarpeta autorizar en Cowork** para cada caso.
+
+Cómo descargarla:
+
+- **Opción rápida** — clonar todo el repo:
+  ```bash
+  git clone https://github.com/danisev7/geinstal-ia-sesion2-estudios.git
+  ```
+- **Sin git** — descargar el repo como ZIP desde el botón verde *Code → Download ZIP* en GitHub y descomprimirlo.
+
+---
+
 ## Conoce Claude Cowork
 
 | Recurso | Enlace |
@@ -53,6 +69,37 @@ Construido sobre la misma arquitectura que **Claude Code** — el sistema agént
 - ☑ Una **carpeta de trabajo dedicada** — NO toda la unidad ni el escritorio entero
 - ☑ **Conectores** — Outlook, OneDrive, Teams (Geinstal usa Microsoft 365)
 - ☑ **Claude en Chrome** (opcional, beta · disponible en Pro, Max, Team y Enterprise) — para páginas sin conector. Útil para portales como BOE, PLACE, GMAOs web.
+
+---
+
+## Vuestra primera tarea con Cowork (para reproducir en casa)
+
+La demo de *"primera tarea"* que habéis visto en directo la podéis replicar vosotros mismos. Es la forma más rápida de ver el flujo end-to-end de Cowork sin riesgo (solo lee, no modifica nada).
+
+### Carpeta a usar
+
+`demos/slide-09-primera-tarea/` — contiene:
+
+| Archivo | Qué es |
+|---------|--------|
+| `pliego-A.pdf` | Pliego corto ficticio — Hospital de Sant Pau (3 pág) |
+| `pliego-B.pdf` | Pliego corto ficticio — CCCB Barcelona (3 pág) |
+| `plantilla-costes.xlsx` | Plantilla de costes internos de Geinstal (partidas HVAC, ELE, PCI, fontanería + reglas transversales) |
+
+### Cómo reproducirla en 3 minutos
+
+1. **Abre Claude Desktop** → cambia al modo **Cowork** → **autoriza la carpeta `demos/slide-09-primera-tarea/`**.
+
+2. **Lanza este prompt** en el chat:
+
+   ```
+   Léeme los archivos que hay en esta carpeta y dime qué es
+   cada uno y qué información contienen.
+   ```
+
+3. **Revisa el plan** que te muestra Cowork → **Aprueba** → observa cómo lee los tres archivos en paralelo y devuelve un resumen estructurado.
+
+> La carpeta queda **intacta**: el prompt no pide crear nada, así que Cowork no toca un solo byte. Este es el flujo base; todo lo demás que hace Cowork es una variación de estos mismos 4 pasos.
 
 ---
 
