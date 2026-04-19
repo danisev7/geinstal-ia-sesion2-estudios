@@ -377,6 +377,86 @@ Variedad deliberada: **importes entre 18 € y 2.450 €**, IVAs **21 % y 10 %**
 
 ---
 
+## Síntesis de investigación histórica — pide la señal (reproducir en casa)
+
+El caso más potente del Bloque 1. Cowork procesa en paralelo **8 pliegos** que habéis analizado a lo largo de un año entero, los cruza con los criterios internos del departamento, y devuelve **inteligencia accionable para dirección**: no un resumen, sino las señales que permiten decidir inversiones formativas o técnicas del próximo año.
+
+> Esta demo se hace dentro del Project `Licitaciones-2026` (el que montasteis en el apartado anterior). Los 8 pliegos históricos y los archivos de criterios internos ya están en la estructura del Project — no hay que mover nada.
+
+### Archivos implicados
+
+```
+14-licitaciones-2026/
+├── historico-pliegos/
+│   ├── pliego-hospital-sant-pau.pdf           PRESENTADO
+│   ├── pliego-imdea-alimentacion.pdf          NO PRESENTADO (distancia + especialización)
+│   ├── pliego-hospital-clinic.pdf             NO PRESENTADO (gases medicinales)
+│   ├── pliego-sant-joan-de-deu.pdf            NO PRESENTADO (gases medicinales)
+│   ├── pliego-uab-fisicas.pdf                 PRESENTADO (adjudicado)
+│   ├── pliego-ayto-terrassa.pdf               PRESENTADO (adjudicado)
+│   ├── pliego-mercabarna.pdf                  PRESENTADO (no adjudicado por precio)
+│   ├── pliego-hospital-granollers.pdf         NO PRESENTADO (gases medicinales)
+│   └── decisiones.md                          Tabla con decisión y motivo por pliego
+└── criterios-internos/
+    ├── cuando-presentarse.md                  (ya existente)
+    ├── margenes-minimos.md                    (ya existente)
+    ├── capacidad-actual.md                    (ya existente)
+    └── competencias-tecnicas.md               DOMINADAS vs NO DOMINADAS
+```
+
+> **Patrón plantado deliberadamente**: 3 de los 4 pliegos rechazados lo fueron por **"gases medicinales"**. Cowork debe detectar ese patrón al hacer el análisis transversal — y eso convierte la demo en un resultado "wow" en directo.
+
+### Cómo reproducirla
+
+1. **Abre un chat nuevo** dentro del Project `Licitaciones-2026`.
+
+2. **Lanza este prompt** (pide la señal, no el resumen):
+
+   ```
+   En la carpeta historico-pliegos/ hay 8 pliegos que hemos
+   analizado durante los últimos 12 meses. El archivo
+   historico-pliegos/decisiones.md indica qué hicimos con cada
+   uno (presentar / no presentar) y el motivo.
+
+   Cruza esos 8 pliegos con los archivos de criterios-internos/
+   (especialmente competencias-tecnicas.md) y respóndeme:
+
+   1. ¿Qué 3 requisitos técnicos aparecen con más frecuencia
+      en los 8 pliegos? De ellos, ¿cuáles NO dominamos hoy según
+      competencias-tecnicas.md?
+
+   2. ¿Hay un patrón en los tipos de cliente o tipos de pliego
+      donde sistemáticamente hemos decidido NO presentarnos?
+      (Busca un factor común — no te limites a enumerar los
+      rechazos.)
+
+   3. Proponme 2 inversiones formativas o técnicas concretas
+      para 2026 basadas en los hallazgos anteriores, con
+      estimación cualitativa de impacto (cuántos pliegos del
+      histórico habríamos podido ganar si ya hubiéramos tenido
+      esa competencia).
+
+   Estructura la respuesta como un documento de decisión para
+   dirección: titulares, hallazgos con datos, recomendaciones
+   justificadas. Guárdalo en analisis/sintesis-historica-2026.md.
+   ```
+
+3. **Observa los subagentes**. Cowork lanza ~8 subagentes en paralelo (uno por pliego) — veréis el panel de progreso con las 8 lecturas simultáneas.
+
+4. **Revisa la respuesta**. Debe detectar:
+   - 3 requisitos técnicos frecuentes (HVAC, ELE y PCI aparecen en los 8; **gases medicinales** en 3 de 8 — este es el accionable).
+   - El patrón: **"de los 4 rechazos, 3 fueron por gases medicinales"**.
+   - Inversión 1: formación + certificación en normativa de gases medicinales (habríamos podido ganar Clínic, SJD, Granollers — 5,8 M€ combinados).
+   - Inversión 2: acuerdo con laboratorio acreditado para sala limpia ISO 7 (o equivalente).
+
+5. **Para cerrar la demo**, pide: *"Escríbeme un correo breve dirigido al director general para presentarle estas recomendaciones en 200 palabras"*. Cowork genera el correo listo para enviar.
+
+> **Lección**: el prompt pide **señales accionables**, no resúmenes. Cowork procesa 500+ páginas de pliegos en 2 minutos y devuelve 2 decisiones de dirección con datos. Hacer esto a mano llevaría varios días — y difícilmente se llegaría a los mismos cruces.
+>
+> Esta es la promesa real para Estudios: no reemplazar el pensamiento, sino **procesar el material** para que vuestro pensamiento actúe sobre información ya destilada.
+
+---
+
 ## El ciclo de la tarea (4 pasos oficiales)
 
 1. **Describe qué quieres recibir** — qué mirar, qué devolver, dónde guardarlo.
