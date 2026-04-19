@@ -215,6 +215,72 @@ Montad el **Project que vais a usar en los Casos 4 y 5 del Bloque 2**. En la dem
 
 ---
 
+## Valorar una oferta con Excel pesado (reproducir en casa)
+
+El caso **diario crítico de Estudios**. Todos manejáis plantillas Excel de ofertas con docenas o cientos de partidas — cada cliente con su estructura, sus códigos, sus unidades. Esta demo os enseña cómo Cowork ataca directamente ese trabajo.
+
+### Carpeta a usar
+
+`demos/17-valorar-oferta/` — contiene:
+
+| Archivo | Qué es |
+|---------|--------|
+| `oferta-ClienteX.xlsx` | Plantilla realista de un hospital grande (Vall d'Hebron) — **9 hojas · 177 partidas** distribuidas en Climatización, Electricidad, PCI, Fontanería, Elevadores, Equipos especiales, Personal adscrito y Mejoras. Celdas amarillas vacías a rellenar. Fórmulas de subtotal y total general ya montadas. |
+| `costes-internos-2026.xlsx` | Costes internos Geinstal (**105 códigos** en 6 secciones) + hoja de *Reglas transversales* (márgenes mínimos, recargos, overhead). |
+
+> **Deliberadamente algunas partidas de la plantilla no tienen equivalente exacto** en los costes internos (ej. *"Supervisión remota BMS con integración Gridcontrol v5"*, *"Sistema tubo neumático transporte muestras"*, *"Mantenimiento sistema aire comprimido medicinal"*). Eso fuerza que Cowork genere la hoja *"Sin-match"*.
+
+### Cómo reproducirla
+
+1. **Autoriza** en Cowork la carpeta `demos/17-valorar-oferta/` (o cópiala dentro de tu Project `Licitaciones-2026`).
+
+2. **Lanza este prompt**:
+
+   ```
+   Mira la plantilla del cliente en oferta-ClienteX.xlsx. Es un
+   Excel con 9 hojas (1 resumen + 8 capítulos técnicos). Rellena
+   en cada capítulo las columnas F (Precio unitario oferta) y G
+   (Total) cruzando con los costes internos de Geinstal en
+   costes-internos-2026.xlsx.
+
+   Reglas:
+   - Aplica un margen global del 18 % sobre nuestro coste interno.
+   - La columna G se calcula con la fórmula =D*F que ya está en el
+     Excel — al rellenar F se actualiza sola. No la sobreescribas.
+   - Si una partida del cliente no tiene equivalente claro en los
+     costes internos, déjala vacía en la columna F y añádela a una
+     hoja nueva "Sin-match" con: código, descripción, capítulo y
+     por qué no la has encontrado.
+   - Si detectas partidas duplicadas, ambiguas o con cantidades
+     sospechosas en la plantilla del cliente, márcalas en una hoja
+     "Revisar".
+
+   Al terminar, escribe un resumen.md con:
+   - Importe total anual de la oferta (suma de los 8 capítulos)
+   - Número de partidas valoradas / sin match / a revisar
+   - 5 partidas con margen más bajo y 5 con margen más alto
+   - Cualquier riesgo detectado
+
+   Guarda el Excel como oferta-ClienteX-valorada.xlsx manteniendo
+   la estructura original.
+
+   Antes de hacer nada muéstrame el plan de lo que vas a realizar.
+   ```
+
+3. **Revisa el plan**: leer plantilla del cliente → leer costes → mapear capítulo por capítulo → rellenar columnas → generar hojas Sin-match y Revisar → guardar. Aprueba.
+
+4. **Abre el `.xlsx` resultante** y comprueba:
+   - Los **subtotales de cada capítulo** se han calculado solos (fórmulas `=SUM(...)` actualizadas).
+   - El **total general** aparece en la hoja `Resumen`.
+   - La hoja **`Sin-match`** lista las partidas que Cowork no ha podido cruzar (debería incluir, al menos, las partidas singulares del hospital que no están en costes internos).
+   - El **`resumen.md`** trae la síntesis ejecutiva.
+
+5. **Itera**: pide *"explícame cómo has calculado el total de la partida P-HVAC-042"* y Cowork te contará qué código interno usó, qué margen aplicó y qué asunciones tomó. Cada celda es **auditable**.
+
+> Lección clave: el 90 % del Excel se rellena solo. Tu trabajo como humano es revisar las partidas sin match (20-30 típicamente) y decidir el coste. **Pasas de 4 horas de copia-pega a 20 minutos de revisión técnica.**
+
+---
+
 ## El ciclo de la tarea (4 pasos oficiales)
 
 1. **Describe qué quieres recibir** — qué mirar, qué devolver, dónde guardarlo.
