@@ -925,9 +925,9 @@ Guía oficial: [support.claude.com/en/articles/12902428](https://support.claude.
 ### Prompt
 
 ```
-Estoy en la Plataforma de Contratación del Sector Público
-(place.gob.es). Quiero que me extraigas las licitaciones
-publicadas en los últimos 7 días que cumplan:
+Estoy en la Plataforma de Contratación del Sector Público.
+Extrae las licitaciones publicadas en los últimos 7 días
+que cumplan:
 
 – Tipo: servicios (CPV de mantenimiento)
 – Importe estimado: > 100.000 €
@@ -944,6 +944,8 @@ NO me logues con mis credenciales —
 si pide login, para y avísame.
 ```
 
+> ℹ️ **Dónde se escribe el prompt**: Claude en Chrome funciona desde el **side panel** de la extensión dentro del navegador, NO desde Claude Desktop. No hay ningún `/chrome` como slash command — navegas manualmente a la página, abres el panel lateral con el icono de la extensión y ahí pegas el prompt. Claude ya ve la URL en la que estás, por eso no hace falta incluirla en el texto del prompt.
+
 ### Anotaciones
 
 - **Estructura habitual**: INPUT (página PLACE) + TRANSFORMACIÓN (extraer con criterios) + OUTPUT (Excel en carpeta).
@@ -952,14 +954,13 @@ si pide login, para y avísame.
 
 ### Cómo reproducirla en casa
 
-Este caso no requiere archivos de input — se ejecuta sobre un portal web público en vivo (`place.gob.es`). Prerrequisitos y pasos:
+Este caso no requiere archivos de input — se ejecuta sobre un portal web público en vivo (**PLACE**, en `contrataciondelestado.es`). Prerrequisitos y pasos:
 
-1. **Extensión Claude en Chrome** instalada (Chrome Web Store → "Claude"). Disponible en Pro/Max/Team/Enterprise desde diciembre 2025.
-2. **Abre el Project `Licitaciones-2026`** en Cowork Desktop para que el output del radar aterrice dentro del Project.
-3. **Navega en Chrome a [https://contrataciondelestado.es](https://contrataciondelestado.es)** (PLACE). Filtra por *servicios* y *Cataluña* para limitar resultados de la demo.
-4. **Activa la extensión** desde el icono junto a la barra de URL. Autoriza la primera vez el dominio `contrataciondelestado.es`.
-5. **Pega el prompt** tal cual. Revisa el plan que Cowork propone antes de aprobar.
-6. **Output esperado**: `radar/place-2026-04-21.xlsx` dentro del Project `Licitaciones-2026/` (la carpeta `radar/` ya existe con un `LEEME.md` — Cowork sólo añade el Excel).
+1. **Extensión Claude en Chrome** instalada desde la [Chrome Web Store](https://claude.ai/chrome). Disponible en Pro/Max/Team/Enterprise desde diciembre 2025. Tras instalarla, fijarla a la barra (icono de puzzle → chincheta junto a "Claude").
+2. **Navega en Chrome a [https://contrataciondelestado.es](https://contrataciondelestado.es)**. Entra en "Licitaciones" y filtra por *servicios* y *Cataluña* para limitar resultados de la demo.
+3. **Abre el side panel de la extensión** haciendo clic en el icono de Claude en la barra del navegador. Autoriza la primera vez el dominio `contrataciondelestado.es` cuando te lo pida.
+4. **Pega el prompt** en el side panel. Revisa el plan que Claude propone antes de aprobar.
+5. **Output esperado**: `radar/place-2026-04-21.xlsx` dentro del Project `Licitaciones-2026/` (la carpeta `radar/` ya existe con un `LEEME.md` — Claude sólo añade el Excel).
 
 Qué verificar al ejecutar la demo:
 
