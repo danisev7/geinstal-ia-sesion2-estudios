@@ -925,23 +925,34 @@ Guía oficial: [support.claude.com/en/articles/12902428](https://support.claude.
 ### Prompt
 
 ```
-Estoy en la Plataforma de Contratación del Sector Público.
-Extrae las licitaciones publicadas en los últimos 7 días
-que cumplan:
+Abre Chrome y navega al buscador de licitaciones de
+https://contrataciondelestado.es/. Rellena el formulario
+con estos filtros:
 
-– Tipo: servicios (CPV de mantenimiento)
-– Importe estimado: > 100.000 €
-– Lugar de ejecución: Cataluña
+País: España
+Tipo de contrato: Servicios
+Presentación desde: 01-05-2026
+Presentación hasta: 04-05-2026
+Financiación UE: Sí
 
-Para cada una recoge: número expediente, órgano contratante,
-objeto, importe, fecha límite presentación, link al pliego.
+Haz clic en "Buscar". Del listado de resultados, toma solo
+los 5 primeros. Para cada uno, entra en el detalle de la
+licitación y recoge:
 
-Guarda los resultados en
-radar/place-AAAA-MM-DD.xlsx
-en mi carpeta Cowork.
+– Número de expediente
+– Órgano contratante
+– Objeto del contrato
+– Importe estimado (€)
+– Fecha límite de presentación
+– URL del pliego (enlace directo al documento o a la ficha)
 
-NO me logues con mis credenciales —
-si pide login, para y avísame.
+Guarda los resultados en un archivo Excel en
+radar/place-2026-04-21.xlsx con una fila por licitación y
+una columna por cada campo. Aplica formato profesional
+con cabeceras en negrita y columnas ajustadas.
+
+NO introduzcas credenciales si la web pide login —
+para y avísame.
 ```
 
 > ℹ️ **Dónde se escribe el prompt**: Claude en Chrome funciona desde el **side panel** de la extensión dentro del navegador, NO desde Claude Desktop. No hay ningún `/chrome` como slash command — navegas manualmente a la página, abres el panel lateral con el icono de la extensión y ahí pegas el prompt. Claude ya ve la URL en la que estás, por eso no hace falta incluirla en el texto del prompt.
