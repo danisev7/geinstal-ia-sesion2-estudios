@@ -74,7 +74,7 @@ Construido sobre la misma arquitectura que **Claude Code** — el sistema agént
 - ☑ **Cuenta Claude con plan de pago** (Pro, Max, Team o Enterprise)
 - ☑ Una **carpeta de trabajo dedicada** — NO toda la unidad ni el escritorio entero
 - ☑ **Conectores** — Outlook, OneDrive, Teams (Geinstal usa Microsoft 365)
-- ☑ **Claude en Chrome** (opcional, beta · disponible en Pro, Max, Team y Enterprise) — para páginas sin conector. Útil para portales como BOE, PLACE, GMAOs web.
+- ☑ **Claude en Chrome** (opcional, beta · disponible en Pro, Max, Team y Enterprise) — para páginas sin conector. Útil para portales como BOE, PLACE, GMAOs web. Son dos piezas: la extensión **"Claude in Chrome"** en el navegador + la extensión **"Control Chrome"** dentro de Claude Desktop (`Ajustes → Extensiones`).
 
 ---
 
@@ -902,7 +902,10 @@ Qué verificar al ejecutar la demo:
 
 ## Caso 3 · MEDIA — Claude en Chrome para portales web sin conector · Slides 43-46
 
-> **Pre-requisito**: tener instalada la extensión [claude.ai/chrome](https://claude.ai/chrome). Está en beta y disponible en los planes Pro, Max, Team y Enterprise (desde diciembre 2025).
+> **Pre-requisitos** (dos piezas, ambas imprescindibles):
+>
+> 1. **Extensión "Claude in Chrome" (Beta)** en el navegador Google Chrome — desde [claude.ai/chrome](https://claude.ai/chrome). Disponible en Pro/Max/Team/Enterprise (desde diciembre 2025).
+> 2. **Extensión "Control Chrome"** dentro de Claude Cowork Desktop — `Ajustes → Extensiones → Instalado en tu ordenador → Control Chrome`. Es la que da a Cowork la capacidad de pilotar el navegador. Sin ella, Cowork no puede manejar Chrome aunque la extensión del navegador sí esté instalada.
 
 ### ⚠ Antes de usar Chrome: el riesgo del *prompt injection*
 
