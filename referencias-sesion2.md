@@ -967,7 +967,9 @@ para y avísame.
 
 Este caso no requiere archivos de input — se ejecuta sobre un portal web público en vivo (**PLACE**, en `contrataciondelestado.es`). Prerrequisitos y pasos:
 
-1. **Extensión Claude en Chrome** instalada desde la [Chrome Web Store](https://claude.ai/chrome). Disponible en Pro/Max/Team/Enterprise desde diciembre 2025. Tras instalarla, fijarla a la barra (icono de puzzle → chincheta junto a "Claude"). Cowork Desktop la detectará y podrá manejarla.
+1. **Dos piezas que deben estar activas** (ambas imprescindibles):
+   - **Extensión "Claude in Chrome" (Beta)** en el navegador Google Chrome — instalable desde [claude.ai/chrome](https://claude.ai/chrome). Disponible en Pro/Max/Team/Enterprise desde diciembre 2025. Tras instalarla, fijarla a la barra (icono de puzzle → chincheta junto a "Claude").
+   - **Extensión "Control Chrome"** en Claude Cowork Desktop — `Ajustes → Extensiones → Instalado en tu ordenador → Control Chrome`. Esta es la que da a Cowork Desktop la capacidad de orquestar el navegador. Sin ella, Cowork no puede pilotar Chrome aunque la extensión del navegador sí esté instalada.
 2. **Abre Claude Cowork Desktop** y entra al Project `Licitaciones-2026`. Nuevo chat.
 3. **Pega el prompt** en el chat de Cowork y envía.
 4. Cowork abrirá Chrome automáticamente, navegará a `contrataciondelestado.es`, rellenará los filtros del formulario y recorrerá los 5 primeros resultados. Autoriza el dominio la primera vez si te lo pide.
