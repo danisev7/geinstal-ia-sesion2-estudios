@@ -75,6 +75,7 @@ Construido sobre la misma arquitectura que **Claude Code** — el sistema agént
 - ☑ Una **carpeta de trabajo dedicada** — NO toda la unidad ni el escritorio entero
 - ☑ **Conectores** — Outlook, OneDrive, Teams (Geinstal usa Microsoft 365)
 - ☑ **Claude en Chrome** (opcional, beta · disponible en Pro, Max, Team y Enterprise) — para páginas sin conector. Útil para portales como BOE, PLACE, GMAOs web. Son dos piezas: la extensión **"Claude in Chrome"** en el navegador ([claude.ai/chrome](https://claude.ai/chrome)) + la extensión **"Control Chrome"** dentro de Claude Desktop (`Ajustes → Extensiones`).
+- ☑ **Requisitos del sistema** — macOS (Apple Silicon o Intel) o Windows x64. **No soportado**: Windows ARM64, iOS/Android ni la web. Mínimo 8 GB de RAM y 5 GB libres en disco para la máquina virtual que Cowork arranca al primer uso.
 
 ---
 
@@ -521,6 +522,8 @@ programar para que veamos el resultado.
 Cowork lanza el prompt, aparece el plan, aprobáis, y en un par de minutos tenéis el `.md` generado en la carpeta.
 
 > **Patrón reutilizable**: *conector + tarea programada + archivo de salida*. Cambiad *newsletters* por *correos con pliegos adjuntos de vuestro Comercial* y la misma estructura os genera un radar semanal automatizado.
+
+> ⚠ **Requisito operativo**: para que una tarea programada se dispare, **Claude Desktop debe estar abierto** a la hora configurada. En Mac puede correr discreto en la barra de menú; en Windows minimizado a la bandeja del sistema. Si cierras la app completamente, las tareas programadas no se ejecutan hasta que la vuelves a abrir.
 
 ---
 
