@@ -74,7 +74,7 @@ Construido sobre la misma arquitectura que **Claude Code** — el sistema agént
 - ☑ **Cuenta Claude con plan de pago** (Pro, Max, Team o Enterprise)
 - ☑ Una **carpeta de trabajo dedicada** — NO toda la unidad ni el escritorio entero
 - ☑ **Conectores** — Outlook, OneDrive, Teams (Geinstal usa Microsoft 365)
-- ☑ **Claude en Chrome** (opcional, beta · disponible en Pro, Max, Team y Enterprise) — para páginas sin conector. Útil para portales como BOE, PLACE, GMAOs web. Son dos piezas: la extensión **"Claude in Chrome"** en el navegador + la extensión **"Control Chrome"** dentro de Claude Desktop (`Ajustes → Extensiones`).
+- ☑ **Claude en Chrome** (opcional, beta · disponible en Pro, Max, Team y Enterprise) — para páginas sin conector. Útil para portales como BOE, PLACE, GMAOs web. Son dos piezas: la extensión **"Claude in Chrome"** en el navegador ([claude.ai/chrome](https://claude.ai/chrome)) + la extensión **"Control Chrome"** dentro de Claude Desktop (`Ajustes → Extensiones`).
 
 ---
 
