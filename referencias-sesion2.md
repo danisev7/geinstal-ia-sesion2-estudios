@@ -955,7 +955,7 @@ NO introduzcas credenciales si la web pide login —
 para y avísame.
 ```
 
-> ℹ️ **Dónde se escribe el prompt**: Claude en Chrome funciona desde el **side panel** de la extensión dentro del navegador, NO desde Claude Desktop. No hay ningún `/chrome` como slash command — navegas manualmente a la página, abres el panel lateral con el icono de la extensión y ahí pegas el prompt. Claude ya ve la URL en la que estás, por eso no hace falta incluirla en el texto del prompt.
+> ℹ️ **Dónde se escribe el prompt**: en el chat de **Claude Cowork Desktop**, dentro del Project `Licitaciones-2026`. Cowork detecta que la tarea requiere web, orquesta la extensión Claude en Chrome, abre Chrome, rellena filtros y recoge datos, y vuelca el Excel en `radar/` dentro del Project. Por eso el prompt empieza con *"Abre Chrome y navega a..."* — le estás diciendo a Cowork que utilice Chrome como herramienta. La extensión tiene que estar instalada en tu Chrome para que Cowork pueda manejarla.
 
 ### Anotaciones
 
@@ -967,11 +967,12 @@ para y avísame.
 
 Este caso no requiere archivos de input — se ejecuta sobre un portal web público en vivo (**PLACE**, en `contrataciondelestado.es`). Prerrequisitos y pasos:
 
-1. **Extensión Claude en Chrome** instalada desde la [Chrome Web Store](https://claude.ai/chrome). Disponible en Pro/Max/Team/Enterprise desde diciembre 2025. Tras instalarla, fijarla a la barra (icono de puzzle → chincheta junto a "Claude").
-2. **Navega en Chrome a [https://contrataciondelestado.es](https://contrataciondelestado.es)**. Entra en "Licitaciones" y filtra por *servicios* y *Cataluña* para limitar resultados de la demo.
-3. **Abre el side panel de la extensión** haciendo clic en el icono de Claude en la barra del navegador. Autoriza la primera vez el dominio `contrataciondelestado.es` cuando te lo pida.
-4. **Pega el prompt** en el side panel. Revisa el plan que Claude propone antes de aprobar.
-5. **Output esperado**: `radar/place-2026-04-21.xlsx` dentro del Project `Licitaciones-2026/` (la carpeta `radar/` ya existe con un `LEEME.md` — Claude sólo añade el Excel).
+1. **Extensión Claude en Chrome** instalada desde la [Chrome Web Store](https://claude.ai/chrome). Disponible en Pro/Max/Team/Enterprise desde diciembre 2025. Tras instalarla, fijarla a la barra (icono de puzzle → chincheta junto a "Claude"). Cowork Desktop la detectará y podrá manejarla.
+2. **Abre Claude Cowork Desktop** y entra al Project `Licitaciones-2026`. Nuevo chat.
+3. **Pega el prompt** en el chat de Cowork y envía.
+4. Cowork abrirá Chrome automáticamente, navegará a `contrataciondelestado.es`, rellenará los filtros del formulario y recorrerá los 5 primeros resultados. Autoriza el dominio la primera vez si te lo pide.
+5. **Revisa el plan** que Cowork propone antes de ejecutar cada acción.
+6. **Output esperado**: `radar/place-2026-04-21.xlsx` dentro del Project `Licitaciones-2026/` (la carpeta `radar/` ya existe con un `LEEME.md` — Cowork sólo añade el Excel).
 
 Qué verificar al ejecutar la demo:
 
